@@ -1,0 +1,159 @@
+body {
+  background-image: url(/img/page1.png);
+  background-size: cover; /* or contain depending on what you want */
+  background-position: center center;
+  background-repeat: no-repeat;
+  text-align:center;
+  margin:auto;
+  padding:0;
+  height: 100%;
+  max-width: 100%;
+  
+}
+
+.left,
+.right {
+  height: 100vh;
+  width: 100%;
+}
+
+
+
+.left h2 {
+  font-family: Georgia, serif;
+  color: #666666;
+  font-size: 30px;
+  line-height: 1em;
+  margin: 0 0 0 60px;
+}
+
+
+
+.left h2 strong {
+  color: #A80C1E;
+  display: block;
+  font-size: 85px;
+  font-weight: normal;
+  letter-spacing: -3.5px;
+  line-height: 1em;
+}
+
+.left img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  width: 100%;
+}
+
+
+
+
+.left .middle{
+  transform: translate(-30%,-30%);
+  top: 5%;
+  left: 20%;
+}
+
+.left .middle b{
+  color: black;
+}
+
+.left .text{
+  color: #fff;
+  font-size: 50px;
+  text-align: center;
+  letter-spacing: 5px;
+}
+
+.left .text::before,.left .text::after{
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.left .text::before{
+  color: #ee420e;
+  animation: glitch-effect 3s infinite;
+}
+
+.left .text::after{
+  color: #f1f50c;
+  animation: glitch-effect 2s infinite;
+}
+
+@keyframes glitch-effect {
+  0%{
+    left: -2px;
+    top: -2px;
+  }
+  25%{
+    left: 2px;
+    top: 0px;
+  }
+  50%{
+    left: -1px;
+    top: 2px;
+  }
+  75%{
+    left: 1px;
+    top: -1px;
+  }
+  100%{
+    left: 0px;
+    top: -2px;
+  }
+}
+
+@media screen and (min-width:768px) {
+
+  .left,
+  .right {
+    height: 100vh;
+  }
+  .left .btn-toggler
+{
+  margin-left: 25%;
+}
+}
+
+@media screen and (max-width:767px){
+  .left .middle{
+    top:5%;
+    left: 30%;
+  }
+
+  .left img{
+    margin-top: 25%;
+  }
+}
+
+.left .btn-toggler
+{
+  position: relative;
+  z-index: 10;
+}
+
+.left .btn-toggler a
+{
+  display: inline-block;
+  font-size: 1em;
+  background-image: linear-gradient(to right, #f83600 0%, #f9d423 100%);
+  padding: 10px 30px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #111;
+  letter-spacing: 2px;
+  transition: 0.2s;
+  border-radius: 5px;
+}
+.left .btn-toggler a:hover
+{
+  letter-spacing: 6px;
+}
