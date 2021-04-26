@@ -1,8 +1,8 @@
 <div align="center" class="row">
   <img src="./img/readme-img.png" width="200"/>
 </div>
-<h3 align="center">EduVantu</h3>
-<h5 align="center">Traditional Learning in Virtual Manner</h5>
+<h1 align="center">EduVantu</h1>
+<h3 align="center">Traditional Learning in Virtual Manner</h3>
 <br>
 
 ## Technologies used
