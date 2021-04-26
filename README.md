@@ -6,7 +6,9 @@
 <br>
 
 ## Technologies used
-PHP HTML CSS BOOTSTRAP
+* PHP
+* HTML, CSS, Bootstrap
+* MYSQL
 
 
 ### Installing depencencies and running the app
@@ -21,3 +23,6 @@ PHP HTML CSS BOOTSTRAP
 
 
 #### [Rajdeep Ghosh](https://github.com/rajghosh2000) 
+[<img src="https://image.flaticon.com/icons/svg/185/185964.svg" width="35" padding="10">](https://www.linkedin.com/in/rajdeep-ghosh-301082175/)
+[<img src="https://image.flaticon.com/icons/svg/185/185981.svg" width="35" padding="10">](https://www.facebook.com/people/Rajdeep-Ghosh/100027649521893/)
+[<img src="https://image.flaticon.com/icons/svg/185/185985.svg" width="35" padding="10">](https://www.instagram.com/imtherajdeep/)
