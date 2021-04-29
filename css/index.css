@@ -1,5 +1,5 @@
 body {
-  background-image: url(/img/page1.png);
+  /* background-image: url(/img/bg.jpg); */
   background-size: cover; /* or contain depending on what you want */
   background-position: center center;
   background-repeat: no-repeat;
@@ -10,6 +10,16 @@ body {
   max-width: 100%;
   
 }
+video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+
 
 .left,
 .right {
@@ -42,8 +52,8 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  height: 100%;
-  width: 100%;
+  height: 120%;
+  width: 120%;
 }
 
 
@@ -56,11 +66,13 @@ body {
 }
 
 .left .middle b{
-  color: black;
+  color: rgb(1, 8, 1);
+  text-shadow: 4px 4px #e1c10c;
+  
 }
 
 .left .text{
-  color: #fff;
+  color: rgb(17, 2, 2);
   font-size: 50px;
   text-align: center;
   letter-spacing: 5px;
@@ -70,20 +82,26 @@ body {
   content: attr(data-text);
   position: absolute;
   top: 0;
-  left: 0;
+  left: 0%;
   width: 100%;
   height: 100%;
   z-index: -1;
 }
 
 .left .text::before{
-  color: #ee420e;
+  color: #f10a0a;
   animation: glitch-effect 3s infinite;
 }
 
 .left .text::after{
   color: #f1f50c;
   animation: glitch-effect 2s infinite;
+}
+
+.right .text img {
+  height:50%;
+  width:50%;
+  border-radius: 10px;
 }
 
 @keyframes glitch-effect {
@@ -110,7 +128,6 @@ body {
 }
 
 @media screen and (min-width:768px) {
-
   .left,
   .right {
     height: 100vh;
@@ -129,8 +146,11 @@ body {
 
   .left img{
     margin-top: 25%;
+    width: 100%;
+    height: 100%;
   }
 }
+
 
 .left .btn-toggler
 {
@@ -154,6 +174,81 @@ body {
   border-radius: 5px;
 }
 .left .btn-toggler a:hover
+{
+  letter-spacing: 6px;
+}
+
+.showcase
+{
+  position: relative;
+  right: 0;
+  width: 100%;
+  min-height: 100vh;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.5s;
+  z-index: 2;
+}
+
+
+.right .overlay
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: overlay;
+}
+.right .text
+{
+  position: relative;
+  z-index: 10;
+}
+
+.right .text h2
+{
+  font-size: 1.8em;
+  font-weight: 800;
+  color: rgb(208, 238, 15);
+  line-height: 1em;
+  text-transform: uppercase;
+  left: 0;
+}
+.right .text h3
+{
+  font-size: 1em;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+.right .text p
+{
+  font-size: 1.1em;
+  color: #fff;
+  margin: 20px 0;
+  font-weight: 400;
+  max-width: 700px;
+}
+.right .text a
+{
+  display: inline-block;
+  font-size: 1em;
+  background-image: linear-gradient(to right, #f83600 0%, #f9d423 100%);
+  border-radius:10px;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #111;
+  letter-spacing: 2px;
+  transition: 0.2s;
+}
+.right .text a:hover
 {
   letter-spacing: 6px;
 }
