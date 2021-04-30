@@ -3,15 +3,55 @@
 
 <head>
     <title>Animated Login Form</title>
-    <link rel="stylesheet" type="text/css" href="../css/_sihnUp.css">
+    <link rel="stylesheet" type="text/css" href="../css/_signUp.css">
     <link rel="icon" href="../../img/logo-icon.png">
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
+
+    <!-- Modal -->
+    <div class="modal fade" id="otpCheck" tabindex="-1" role="dialog" aria-labelledby="otpCheck" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content bg-transparent">
+                <div class="modal-header">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">VERIFY USER</h5>
+                </div>
+                <div class="modal-body">
+                    <form action="../../src/_handleOtpValidation.php" method="post"> 
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="text-white">Enter the OTP Recieved</label>
+                            <input type="text" class="form-control" id="otp" name="otp" placeholder="OTP HERE" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Verify User</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <img class="wave" src="wave.png">
+    <script>
+        var address = window.location.href; //Gets the content of address bar
+        var findUser = address.search("userId=true"); //Checks if already userId=true
+
+        if (findUser >= 0) { //Automated Modal Opener on Registration for OTP verification
+            console.log("hello");
+            $(document).ready(function () {
+                $("#otpCheck").modal("show");
+            });
+            console.log("hello");
+        }
+        console.log(address);
+        console.log(findUser);
+    </script>
     <div class="container">
         <div class="img">
             <img src="../../img/2.png">
@@ -19,7 +59,7 @@
         <div class="login-content">
             <form action="../../src/_handleReg.php" method="post">
                 <img src="../../img/logo-icon.png">
-                <h2 class="title">REGISTER</h2>
+                <h2 class="title">Register</h2>
                 <div class="input-div pass">
                     <div class="i">
                         <i class="fas fa-user"></i>
@@ -58,12 +98,22 @@
                 </div>
                 <input type="submit" class="btn" value="Register">
                 <div class="i" style="width: auto; height:30px;">
-                    <a href="/eClass"><i class="fas fa-arrow-alt-circle-left" style="height:30px;"> Back to Home Page</i></a>
+                    <a href="/eClass"><i class="fas fa-arrow-alt-circle-left" style="color:black; "> Back to Home
+                            Page</i></a>
                 </div>
             </form>
         </div>
     </div>
     <script type="text/javascript" src="../js/_signUp.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
