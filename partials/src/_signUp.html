@@ -18,20 +18,63 @@
     <!-- Modal -->
     <div class="modal fade" id="otpCheck" tabindex="-1" role="dialog" aria-labelledby="otpCheck" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content bg-transparent">
+            <style>
+                .modal-css {
+                    font-family: 'Poppins', sans-serif;
+                }
+
+                .modal-css ::placeholder {
+                    /* Chrome, Firefox, Opera, Safari 10.1+ */
+                    color: rgb(250, 243, 243);
+                    opacity: 1;
+                    /* Firefox */
+                }
+
+                .modal-css :-ms-input-placeholder {
+                    /* Internet Explorer 10-11 */
+                    color: rgb(235, 229, 229);
+                }
+
+                .modal-css ::-ms-input-placeholder {
+                    /* Microsoft Edge */
+                    color: rgb(241, 223, 223);
+                }
+
+                input[type=number]::-webkit-inner-spin-button,
+                input[type=number]::-webkit-outer-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+            </style>
+            <div class="modal-content bg-transparent modal-css">
                 <div class="modal-header">
                     <h5 class="modal-title text-white" id="exampleModalLabel">VERIFY USER</h5>
                 </div>
                 <div class="modal-body">
-                    <form action="../../src/_handleOtpValidation.php" method="post"> 
+                    <form action="../../src/_handleOtpValidation.php" method="post">
                         <div class="form-group">
-                            <label for="exampleInputEmail1" class="text-white">Enter the OTP Recieved</label>
-                            <input type="text" class="form-control" id="otp" name="otp" placeholder="OTP HERE" required>
+                            <script>
+                                var str = "userId=true?";
+                                var address = window.location.href; //Gets the content of address bar
+                                var findUser = address.search(str); //Checks if already userId=true
+                                findUser = findUser + str.length;
+                                document.write(
+                                    '<input type="text" class="form-control font-weight-bold bg-transparent text-white border-0" id="email" name="email" value="' +
+                                    address.substring(findUser, address.length) + '" readonly>');
+                            </script>
                         </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-success">Verify User</button>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Enter the OTP Recieved</label>
+                            <input type="number" step="0.01" class="form-control text-white bg-transparent" id="otp"
+                                name="otp" placeholder="OTP HERE" required>
+                                <label for="exampleInputEmail1" class="float-right"> *numbers only</label>
                         </div>
+                        <button type="submit" class="btn btn-success text-white font-weight-bold float-right mt-2">Verify
+                            User</button>
                     </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-success text-white" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

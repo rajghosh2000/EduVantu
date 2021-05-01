@@ -42,7 +42,23 @@
                             if($result)
                             {
                                 $showAlert = true;
-                                header("Location: /eClass/partials/src/_signUp.html?userId=true");
+
+                                $subject = "OTP Validation From EduVantu";
+
+                                $message = "Thanking for registering with us.
+                                So as to complete the registration kindly enter the following otp:'.$otp.'";
+
+                                // Always set content-type when sending HTML email
+                                $headers = "MIME-Version: 1.0" . "\r\n";
+                                $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+                                // More headers : Sender's Email Address
+                                $headers .= 'From: <>' . "\r\n"; 
+
+                                //Mail
+                                
+                                mail($usrEmail,$subject,$message,$headers);
+                                header("Location: /eClass/partials/src/_signUp.html?userId=true?$usrEmail");
                                 exit();
                             }
                             else
