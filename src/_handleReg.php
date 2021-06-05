@@ -1,8 +1,19 @@
 <?php
     $err="false";
+
+     // Import PHPMailer classes into the global namespace 
+     use PHPMailer\PHPMailer\PHPMailer; 
+     use PHPMailer\PHPMailer\Exception; 
+     
+     
+
     if($_SERVER["REQUEST_METHOD"]== "POST")
     {
         include '_dbconnect.php';
+
+        require 'PHPMailer/Exception.php'; 
+        require 'PHPMailer/PHPMailer.php'; 
+        require 'PHPMailer/SMTP.php'; 
 
         $usrName = $_POST['name'];
         $usrEmail = $_POST['uemail'];
@@ -43,23 +54,49 @@
                             {
                                 $showAlert = true;
 
-                                $subject = "OTP Validation From EduVantu";
+                                $mail = new PHPMailer();
+                                
+                                $mail->isSMTP();                      // Set mailer to use SMTP 
+                                $mail->Host = 'smtp.gmail.com';       // Specify main and backup SMTP servers 
+                                $mail->SMTPAuth = true;               // Enable SMTP authentication 
+                                $mail->Username = 'eduvantultd@gmail.com';   // SMTP username 
+                                $mail->Password = 'eduVantultd321';   // SMTP password 
+                                $mail->SMTPSecure = 'tls';            // Enable TLS encryption, `ssl` also accepted 
+                                $mail->Port = 587;                    // TCP port to connect to 
 
-                                $message = "Thanking for registering with us.
-                                So as to complete the registration kindly enter the following otp:'.$otp.'";
+                                // Sender info 
+                                $mail->setFrom('eduvantultd@gmail.com', 'Eduvantu Limited'); 
 
+                                // Add a recipient 
+                                $mail->addAddress($usrEmail);
+
+                                // Mail subject 
+                                $mail->Subject = 'OTP Validation From EduVantu';
+
+                                // Mail body content 
+                                $message = "Thank You for registering with us. So as to complete the registration kindly enter the following otp.";
+                                $message .= "
+                                    OTP : $otp";
+                                $mail->Body = $message;
+
+                               
                                 // Always set content-type when sending HTML email
                                 $headers = "MIME-Version: 1.0" . "\r\n";
                                 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
                                 // More headers : Sender's Email Address
                                 $headers .= 'From: <>' . "\r\n"; 
+                                $mail->header = $headers;
 
                                 //Mail
-                                
-                                mail($usrEmail,$subject,$message,$headers);
-                                header("Location: /eClass/partials/src/_signUp.html?userId=true?$usrEmail");
-                                exit();
+                                if(!$mail->send()) { 
+                                    echo 'Message could not be sent. Mailer Error: '.$mail->ErrorInfo; 
+                                } else { 
+                                    echo 'Message has been sent.';
+                                    echo 'Mail Sent';
+                                    header("Location: /eClass/partials/pages/_signUp.html?userId=true?$usrEmail");
+                                    exit(); 
+                                }                                 
                             }
                             else
                             {
@@ -76,6 +113,5 @@
                     $err="Details not added!!";
                 }
         }
-        header("Location: /eClass/partials/src/_signUp.html?errCL=$err"); 
+        header("Location: /eClass/partials/pages/_signUp.html?errCL=$err"); 
     }
-?>

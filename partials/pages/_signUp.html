@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Animated Login Form</title>
+    <title>EduVantu</title>
     <link rel="stylesheet" type="text/css" href="../css/_signUp.css">
     <link rel="icon" href="../../img/logo-icon.png">
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
@@ -86,11 +86,9 @@
         var findUser = address.search("userId=true"); //Checks if already userId=true
 
         if (findUser >= 0) { //Automated Modal Opener on Registration for OTP verification
-            console.log("hello");
             $(document).ready(function () {
                 $("#otpCheck").modal("show");
             });
-            console.log("hello");
         }
         console.log(address);
         console.log(findUser);
