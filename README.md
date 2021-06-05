@@ -1,5 +1,5 @@
 <div align="center" class="row">
-  <img src="./img/logo-icon.png" width="200"/>
+  <img src="./img/logo.png" width="200"/>
 </div>
 <h1 align="center">EduVantu</h1>
 <h3 align="center">Traditional Learning in Virtual Manner</h3>
