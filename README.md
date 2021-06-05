@@ -1,4 +1,4 @@
-<div align="center" class="row" style="border-radius: 25px;>
+<div align="center" class="row" style="border-radius: 25px;">
   <img " src="./img/logo.png" width="200"/>
 </div>
 <h1 align="center">EduVantu</h1>
