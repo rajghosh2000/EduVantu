@@ -17,7 +17,7 @@
                     echo'
                     </nav>
                     <a class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-gray-800 text-yellow-400 mb-2 mx-8 data-toggle="tooltip" title="Your Account""
-                        href="#">
+                        href="account.php">
                         <div class="flex-shrink-0 w-20 h-20 bg-gray-600 text-orange-400 rounded-full inline-flex items-center justify-center">
                             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                 stroke-width="2" class="w-24 h-12" viewBox="0 0 24 24">

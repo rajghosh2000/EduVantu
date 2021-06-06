@@ -83,8 +83,8 @@
                 <div class="flex flex-wrap -mx-4 -mb-10 text-center">
                     <div class="sm:w-1/2 mb-10 px-4">
                         <div class="rounded-lg h-64 overflow-hidden">
-                            <img alt="content" class="object-cover object-center h-full w-full"
-                                src="https://images.unsplash.com/photo-1564429238817-393bd4286b2d?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=502&ixid=MnwxfDB8MXxyYW5kb218fHx8fHx8fHwxNjIyOTIxMjM3&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1202">
+                            <img alt="create class" class="object-cover object-center h-full w-full"
+                                src="../../img/create.jpg">
                         </div>
                         <h2 class="title-font text-4xl font-medium text-gray-900 mt-6 mb-3">Create Class</h2>
                         <button
@@ -97,8 +97,8 @@
                     </div>
                     <div class="sm:w-1/2 mb-10 px-4">
                         <div class="rounded-lg h-64 overflow-hidden">
-                            <img alt="content" class="object-cover object-center h-full w-full"
-                                src="https://images.unsplash.com/photo-1602145095452-aba06946ed05?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=502&ixid=MnwxfDB8MXxyYW5kb218fHx8fHx8fHwxNjIyOTIxNTMx&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1202">
+                            <img alt="join class" class="object-cover object-center h-full w-full"
+                                src="../../img/join.jpg">
                         </div>
                         <h2 class="title-font text-4xl font-medium text-gray-900 mt-6 mb-3">Join Class</h2>
                         <button

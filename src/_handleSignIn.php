@@ -13,7 +13,6 @@
         if($numRows==1)
         {
             $row = mysqli_fetch_assoc($res);
-            echo $row['usr_pwd'];
             if(password_verify($upwd,$row['usr_pwd']))
                 {
                         session_start();

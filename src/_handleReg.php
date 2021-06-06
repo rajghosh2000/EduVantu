@@ -16,6 +16,7 @@
         require 'PHPMailer/SMTP.php'; 
 
         $usrName = $_POST['name'];
+        $dob = $_POST['dob'];
         $usrEmail = $_POST['uemail'];
         $usrPwd = $_POST['upwd'];
         $usrCpwd = $_POST['ucpwd'];
@@ -26,7 +27,7 @@
 
             $otpRandom = rand(1000,9999);
 
-            $sql = "INSERT INTO `user` (`usr_name`, `usr_email`, `usr_pwd`, `usr_stamp`, `usr_start_otp`) VALUES ('$usrName', '$usrEmail', '$usrPassword', current_timestamp(), '$otpRandom');";
+            $sql = "INSERT INTO `user` (`usr_name`, `dob`, `usr_email`, `usr_pwd`, `usr_stamp`, `usr_start_otp`) VALUES ('$usrName', '$dob', '$usrEmail', '$usrPassword', current_timestamp(), '$otpRandom');";
 
             $res = mysqli_query($con,$sql);
 
@@ -94,7 +95,7 @@
                                 } else { 
                                     echo 'Message has been sent.';
                                     echo 'Mail Sent';
-                                    header("Location: /eClass/partials/pages/_signUp.html?userId=true?$usrEmail");
+                                    header("Location: /eClass/partials/pages/_signUp.html?userId=true?$usrEmail+$dob");
                                     exit(); 
                                 }                                 
                             }
