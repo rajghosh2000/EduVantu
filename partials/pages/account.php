@@ -85,6 +85,10 @@
                                         
                             }
                         }
+                        else{
+                            http_response_code(404);
+                            header("Location: /eClass");
+                        }
                             echo'
                         </div>
                     </div>
