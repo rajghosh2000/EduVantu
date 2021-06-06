@@ -17,9 +17,9 @@
             if(password_verify($upwd,$row['usr_pwd']))
                 {
                         session_start();
-                        // $_SESSION['signedIn'] = true;
-                        // $_SESSION['usremail'] = $uemail; 
-                        header("Location: /eClass/partials/pages/main.html");
+                        $_SESSION['signedIn'] = true;
+                        $_SESSION['usremail'] = $uemail; 
+                        header("Location: /eClass/partials/pages/main.php");
                         exit(); 
                 }
             else{
