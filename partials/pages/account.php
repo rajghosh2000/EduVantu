@@ -1,4 +1,5 @@
 <?php
+    session_start();
     echo'
         <!DOCTYPE html>
         <html lang="en">
@@ -52,6 +53,7 @@
                         <div class="px-6 py-4">';
                         if(isset($_SESSION['signedIn']) && $_SESSION['signedIn']==true)
                         {
+                            
                             $email = $_SESSION['usremail'];
 
                             include '../../src/_dbconnect.php';
@@ -85,10 +87,7 @@
                                         
                             }
                         }
-                        else{
-                            http_response_code(404);
-                            header("Location: /eClass");
-                        }
+                       
                             echo'
                         </div>
                     </div>

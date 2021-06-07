@@ -5,8 +5,6 @@
      use PHPMailer\PHPMailer\PHPMailer; 
      use PHPMailer\PHPMailer\Exception; 
      
-     
-
     if($_SERVER["REQUEST_METHOD"]== "POST")
     {
         include '_dbconnect.php';

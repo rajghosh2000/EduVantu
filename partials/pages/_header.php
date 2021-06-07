@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    
     echo'
         <!-- Header -->
             <header class="text-gray-400 bg-gray-800 body-font">
@@ -8,7 +8,7 @@
                         <img src="../../img/logo-icon.png" class="w-60 h-16">
                     </a>
                     <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">';
-
+                        
                     if(isset($_SESSION['signedIn']) && $_SESSION['signedIn']==true)
                     {
                         echo'<a class="mr-5 hover:text-white">Welcome, '.$_SESSION['usremail'].'</a>';
@@ -26,7 +26,10 @@
                             </svg>
                         </div>
                     </a>
-                    <a type="button" class="px-4 py-2 mx-8 font-medium tracking-wide text-black capitalize transition-colors duration-200 transform bg-green-500 rounded-md dark:bg-gray-800 hover:bg-green-800 dark:hover:bg-green-700 focus:outline-none focus:bg-green-500 dark:focus:bg-gray-700" href ="_logout.php">
+                    <a type="button" class="px-4 py-2 mx-2 font-medium tracking-wide text-black capitalize transition-colors duration-200 transform bg-green-500 rounded-md dark:bg-gray-800 hover:bg-green-800 dark:hover:bg-green-700 focus:outline-none focus:bg-green-500 dark:focus:bg-gray-700" href = "main.php">
+                         Home
+                    </a>
+                    <a type="button" class="px-4 py-2 mx-2 font-medium tracking-wide text-black capitalize transition-colors duration-200 transform bg-green-500 rounded-md dark:bg-gray-800 hover:bg-green-800 dark:hover:bg-green-700 focus:outline-none focus:bg-green-500 dark:focus:bg-gray-700" href ="_logout.php">
                         Logout
                     </a>
                 </div>
