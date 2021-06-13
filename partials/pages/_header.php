@@ -2,7 +2,7 @@
     
     echo'
         <!-- Header -->
-            <header class="text-gray-400 bg-gray-800 body-font">
+            <header class="text-gray-400 bg-gray-700 body-font">
                 <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
                     <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
                         <img src="../../img/logo-icon.png" class="w-60 h-16">
