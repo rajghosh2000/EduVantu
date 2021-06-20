@@ -26,27 +26,27 @@
                                 if($res)
                                     {
                                         $msg = "Classcreated";
-                                        header("Location: /eClass/partials/pages/main.php?=$msg");
+                                        header("Location: /eClass/partials/pages/account.php?=$msg");
                                         exit(); 
                                     }
                                 else
                                     {
                                         $msg="Server Err";
-                                        header("Location: /eClass/partials/pages/main.php?=$msg");
+                                        header("Location: /eClass/partials/pages/account.php?=$msg");
                                         exit(); 
                                     }
                             }
                         else
                             {
                                 $msg="Class Code Exits";
-                                header("Location: /eClass/partials/pages/main.php?=$msg");
+                                header("Location: /eClass/partials/pages/account.php?=$msg");
                                 exit();   
                             } 
                     }  
                 else
                     {
                         $msg="Class Err";
-                        header("Location: /eClass/partials/pages/main.php?=$msg");
+                        header("Location: /eClass/partials/pages/account.php?=$msg");
                         exit();  
                     }             
             }

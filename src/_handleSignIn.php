@@ -18,7 +18,7 @@
                         session_start();
                         $_SESSION['signedIn'] = true;
                         $_SESSION['usremail'] = $uemail; 
-                        header("Location: /eClass/partials/pages/main.php");
+                        header("Location: /eClass/partials/pages/account.php");
                         exit(); 
                 }
             else{
