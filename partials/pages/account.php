@@ -140,21 +140,28 @@
                             <div class="flex flex-wrap w-36 pt-8 flex-col items-center text-center">
                                 <h1 class="text-md font-medium title-font text-gray-900">CLASSES CREATED</h1>
                             </div>
-
-                            <button class="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-200 transform bg-green-800 rounded dark:bg-green-700 hover:bg-green-700 dark:hover:bg-green-600 focus:outline-none focus:bg-green-700 dark:focus:bg-gray-600">
-                                <a href="createClass.php">
-                                    Open Class
-                                </a>
-                            </button>
+                           
+                            <a class="w-10 h-10 mt-8 inline-flex items-center justify-center rounded-full bg-green-300 mb-2 mx-12 data-toggle="tooltip" title="Create Class" href="createClass.php">
+                                <div class="flex-shrink-0 w-16 h-16 bg-green-300 text-orange-400 rounded-full inline-flex items-center justify-center">
+                                    <svg class="svg-icon" viewBox="0 0 20 20" style="width:2.8rem; height:2.8rem;">
+                                        <path d="M18.303,4.742l-1.454-1.455c-0.171-0.171-0.475-0.171-0.646,0l-3.061,3.064H2.019c-0.251,0-0.457,0.205-0.457,0.456v9.578c0,0.251,0.206,0.456,0.457,0.456h13.683c0.252,0,0.457-0.205,0.457-0.456V7.533l2.144-2.146C18.481,5.208,18.483,4.917,18.303,4.742 M15.258,15.929H2.476V7.263h9.754L9.695,9.792c-0.057,0.057-0.101,0.13-0.119,0.212L9.18,11.36h-3.98c-0.251,0-0.457,0.205-0.457,0.456c0,0.253,0.205,0.456,0.457,0.456h4.336c0.023,0,0.899,0.02,1.498-0.127c0.312-0.077,0.55-0.137,0.55-0.137c0.08-0.018,0.155-0.059,0.212-0.118l3.463-3.443V15.929z M11.241,11.156l-1.078,0.267l0.267-1.076l6.097-6.091l0.808,0.808L11.241,11.156z">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </a>
+   
                             
-                            <div class="flex flex-wrap w-36 pt-52 flex-col items-center text-center">
+                            <div class="flex flex-wrap w-36 pt-60 flex-col items-center text-center">
                                 <h1 class="text-md font-medium title-font text-gray-900">CLASSES JOINED</h1>
                             </div>
-                            <button id="myBtn" class="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-200 transform bg-green-800 rounded dark:bg-green-700 hover:bg-green-700 dark:hover:bg-green-600 focus:outline-none focus:bg-green-700 dark:focus:bg-gray-600">
-                                <a href="#">
-                                    Open Class
-                                </a>
-                            </button>
+
+                            <a class="w-10 h-10 mt-8 inline-flex items-center justify-center rounded-full bg-green-300 mb-2 mx-12 data-toggle="tooltip" title=" Join Class" id="myBtn">
+                                <div class="flex-shrink-0 w-16 h-16 bg-green-300 text-orange-400 rounded-full inline-flex items-center justify-center">
+                                    <svg class="svg-icon" viewBox="0 0 20 20" style="width:2.8rem; height:2.8rem;">
+                                        <path fill="none" d="M13.388,9.624h-3.011v-3.01c0-0.208-0.168-0.377-0.376-0.377S9.624,6.405,9.624,6.613v3.01H6.613c-0.208,0-0.376,0.168-0.376,0.376s0.168,0.376,0.376,0.376h3.011v3.01c0,0.208,0.168,0.378,0.376,0.378s0.376-0.17,0.376-0.378v-3.01h3.011c0.207,0,0.377-0.168,0.377-0.376S13.595,9.624,13.388,9.624z M10,1.344c-4.781,0-8.656,3.875-8.656,8.656c0,4.781,3.875,8.656,8.656,8.656c4.781,0,8.656-3.875,8.656-8.656C18.656,5.219,14.781,1.344,10,1.344z M10,17.903c-4.365,0-7.904-3.538-7.904-7.903S5.635,2.096,10,2.096S17.903,5.635,17.903,10S14.365,17.903,10,17.903z"></path>
+                                    </svg>
+                                </div>
+                            </a>
                             
                         </div>
                     </section>
