@@ -203,7 +203,7 @@
                                                             '.$uname.'
                                                         </h1>
                                                         <button class="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-200 transform bg-green-800 rounded dark:bg-green-700 hover:bg-green-700 dark:hover:bg-green-600 focus:outline-none focus:bg-green-700 dark:focus:bg-gray-600">
-                                                        <a href="class.php">
+                                                        <a href="class.php?class='.$cid.'">
                                                             Open Class
                                                         </a>
                                                         </button>
@@ -268,7 +268,7 @@
                                                             '.$uname.'
                                                         </h1>
                                                         <button class="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-200 transform bg-green-800 rounded dark:bg-green-700 hover:bg-green-700 dark:hover:bg-green-600 focus:outline-none focus:bg-green-700 dark:focus:bg-gray-600">
-                                                        <a href="class.php">
+                                                        <a href="class.php?class='.$cid.'">
                                                             Open Class
                                                         </a>
                                                         </button>
