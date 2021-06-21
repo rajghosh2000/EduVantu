@@ -25,13 +25,45 @@
 
                                 if($res)
                                     {
-                                        $msg = "Classcreated";
-                                        header("Location: /eClass/partials/pages/account.php?=$msg");
-                                        exit(); 
+                                        $sqlchk = "SELECT * FROM `class` WHERE `class_id` = '$classCode'";
+                                        $reschk = mysqli_query($con,$sqlchk);
+                                        $numRows = mysqli_num_rows($reschk);
+
+                                        if($numRows==1)
+                                            {
+                                                $row = mysqli_fetch_assoc($reschk);
+                                                $classCodePresent = $row['class_join_code'];
+                                                $classId = $row['sno'];
+
+                                                $id = (string) $classId;
+
+                                                $newClassCode = ($classCodePresent.$id);
+
+                                                $sqlMain = "UPDATE `class` SET `class_join_code`='$newClassCode' WHERE `class_id` = '$classCode'";
+                                                $result = mysqli_query($con,$sqlMain);
+
+                                                if($result)
+                                                {
+                                                    $msg = "Classcreated";
+                                                    header("Location: /eClass/partials/pages/account.php?=$msg");
+                                                    exit();
+                                                }
+                                                else{
+                                                    $msg="Server Err 1";
+                                                    header("Location: /eClass/partials/pages/account.php?=$msg");
+                                                    exit(); 
+                                                }
+                                            }
+                                        else
+                                            {
+                                                $msg="Server Err 2";
+                                                header("Location: /eClass/partials/pages/account.php?=$msg");
+                                                exit(); 
+                                            } 
                                     }
                                 else
                                     {
-                                        $msg="Server Err";
+                                        $msg="Server Err 3";
                                         header("Location: /eClass/partials/pages/account.php?=$msg");
                                         exit(); 
                                     }

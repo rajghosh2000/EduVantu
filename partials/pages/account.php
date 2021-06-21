@@ -59,17 +59,16 @@
                         <h2>Join Class</h2>
                     </div>
                     <div class="modal-body">
-                        <form class="my-6">
+                        <form class="my-6" action="../../src/_handleJoinClass.php" method="post">
                         <div>
                             <label for="username" class="block text-sm text-gray-800 dark:text-gray-200">Class Code</label>
                             <input type="text"
-                                class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                                class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" name="join" id="join" required>
                         </div>
-                    </div>
-                    <div class="modal-footer">
                         <button class="ml-80 px-8 py-2 my-2 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-green-600 rounded-md dark:bg-gray-800 hover:bg-blue-500 dark:hover:bg-gray-700 focus:outline-none focus:bg-blue-500 dark:focus:bg-gray-700">
                             Join
                         </button>
+                    </form>
                     </div>
                 </div>
             </div>
@@ -142,7 +141,7 @@
                             </div>
                            
                             <a class="w-10 h-10 mt-8 inline-flex items-center justify-center rounded-full bg-green-300 mb-2 mx-12 data-toggle="tooltip" title="Create Class" href="createClass.php">
-                                <div class="flex-shrink-0 w-16 h-16 bg-green-300 text-orange-400 rounded-full inline-flex items-center justify-center">
+                                <div class="shadow-2xl flex-shrink-0 w-16 h-16 bg-green-300 text-orange-400 rounded-full inline-flex items-center justify-center">
                                     <svg class="svg-icon" viewBox="0 0 20 20" style="width:2.8rem; height:2.8rem;">
                                         <path d="M18.303,4.742l-1.454-1.455c-0.171-0.171-0.475-0.171-0.646,0l-3.061,3.064H2.019c-0.251,0-0.457,0.205-0.457,0.456v9.578c0,0.251,0.206,0.456,0.457,0.456h13.683c0.252,0,0.457-0.205,0.457-0.456V7.533l2.144-2.146C18.481,5.208,18.483,4.917,18.303,4.742 M15.258,15.929H2.476V7.263h9.754L9.695,9.792c-0.057,0.057-0.101,0.13-0.119,0.212L9.18,11.36h-3.98c-0.251,0-0.457,0.205-0.457,0.456c0,0.253,0.205,0.456,0.457,0.456h4.336c0.023,0,0.899,0.02,1.498-0.127c0.312-0.077,0.55-0.137,0.55-0.137c0.08-0.018,0.155-0.059,0.212-0.118l3.463-3.443V15.929z M11.241,11.156l-1.078,0.267l0.267-1.076l6.097-6.091l0.808,0.808L11.241,11.156z">
                                         </path>
@@ -156,7 +155,7 @@
                             </div>
 
                             <a class="w-10 h-10 mt-8 inline-flex items-center justify-center rounded-full bg-green-300 mb-2 mx-12 data-toggle="tooltip" title=" Join Class" id="myBtn">
-                                <div class="flex-shrink-0 w-16 h-16 bg-green-300 text-orange-400 rounded-full inline-flex items-center justify-center">
+                                <div class="shadow-2xl flex-shrink-0 w-16 h-16 bg-green-300 text-orange-400 rounded-full inline-flex items-center justify-center">
                                     <svg class="svg-icon" viewBox="0 0 20 20" style="width:2.8rem; height:2.8rem;">
                                         <path fill="none" d="M13.388,9.624h-3.011v-3.01c0-0.208-0.168-0.377-0.376-0.377S9.624,6.405,9.624,6.613v3.01H6.613c-0.208,0-0.376,0.168-0.376,0.376s0.168,0.376,0.376,0.376h3.011v3.01c0,0.208,0.168,0.378,0.376,0.378s0.376-0.17,0.376-0.378v-3.01h3.011c0.207,0,0.377-0.168,0.377-0.376S13.595,9.624,13.388,9.624z M10,1.344c-4.781,0-8.656,3.875-8.656,8.656c0,4.781,3.875,8.656,8.656,8.656c4.781,0,8.656-3.875,8.656-8.656C18.656,5.219,14.781,1.344,10,1.344z M10,17.903c-4.365,0-7.904-3.538-7.904-7.903S5.635,2.096,10,2.096S17.903,5.635,17.903,10S14.365,17.903,10,17.903z"></path>
                                     </svg>
@@ -233,16 +232,67 @@
                         </div>
                         
                         <div class="container mx-auto scroll mt-32"> 
-                            <div class="flex flex-wrap"> 
-                                <div class="p-2 mt-12 w-full">
-                                    <div class="bg-gray-100 rounded flex p-4 h-full items-center shadow-lg">
-                                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-yellow-500   w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
-                                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
-                                            <path d="M22 4L12 14.01l-3-3"></path>
-                                        </svg>
-                                        <span class="title-font font-medium">No Classes Yet</span>
-                                    </div>
-                                </div>                                                
+                            <div class="flex flex-wrap">';
+                            if(isset($_SESSION['signedIn']) && $_SESSION['signedIn']==true)
+                            {
+                                
+                                $email = $_SESSION['usremail'];
+    
+                                include '../../src/_dbconnect.php';
+                                $sql = "SELECT class.*, user.usr_name FROM `class` JOIN `std_class` ON class.class_id = std_class.class_id JOIN `user` ON user.usr_email = class.u_email WHERE std_class.u_email ='$email'";
+                                $res = mysqli_query($con,$sql);
+                                $numRows = mysqli_num_rows($res);
+
+                                if($numRows>0){
+                                    while($row = mysqli_fetch_assoc($res)){
+                                        $cid = $row['class_id'];
+                                        $cname = $row['class_name'];
+                                        $uname = $row['usr_name'];
+                                        echo'    
+                                            <div class="lg:w-80 p-1">
+                                                <div class="border-2 border-green-200 p-4 rounded-lg shadow-lg">
+                                                    <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-2">
+                                                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                                                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                                                            <circle cx="12" cy="7" r="4"></circle>
+                                                        </svg>
+                                                    </div>
+                                                    <h3 class="text-xs text-gray-900 font-medium">
+                                                        '.$cid.'
+                                                    </h3>
+                                                    <h2 class="text-lg font-bold mt-1 text-gray-700 dark:text-gray-200 md:text-md">
+                                                        '.$cname.'
+                                                    </h2>
+                                                    <div class="flex justify-between mt-1 item-center">
+                                                        <h1 class="text-sm font-bold text-gray-700 dark:text-gray-200 md:text-md">
+                                                            '.$uname.'
+                                                        </h1>
+                                                        <button class="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-200 transform bg-green-800 rounded dark:bg-green-700 hover:bg-green-700 dark:hover:bg-green-600 focus:outline-none focus:bg-green-700 dark:focus:bg-gray-600">
+                                                        <a href="#">
+                                                            Open Class
+                                                        </a>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div> '
+                                        ;
+                                    }
+                                }
+                                else{
+                                    echo'
+                                        <div class="p-2 mt-16 w-full">
+                                            <div class="bg-gray-100 rounded flex p-4 h-full items-center shadow-lg">
+                                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-yellow-500 w-6 h-6 flex-shrink-0 mr-4" viewBox="0 0 24 24">
+                                                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                                                    <path d="M22 4L12 14.01l-3-3"></path>
+                                                </svg>
+                                                <span class="title-font font-medium">No Classes Yet</span>
+                                            </div>
+                                        </div>  
+                                    ';
+                                }
+                            } 
+                            echo'                                             
                             </div>
                         </div>
                     </section>
