@@ -69,7 +69,7 @@ session_start();
         <div class="lg:py-6 flex max-w-full w-full h-4/5">
             <div class="max-w-sm mx-auto lg:mx-4 overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800 lg:w-1/2">
                 <div class="h-48 overflow-hidden">
-                    <video src="../../img/class.mp4" width="1000" height="400" preload muted loop autoplay playsinline class="rounded-lg"></video>
+                    <video src="../../img/class1.mp4" width="1000" height="400" preload muted loop autoplay playsinline class="rounded-lg"></video>
                 </div>
 
                 <div class="flex items-center px-6 py-3 bg-gray-900">
