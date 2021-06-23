@@ -94,17 +94,10 @@ session_start();
                             $code = $row['class_join_code'];
                             $uemail = $row['u_email'];
 
-                            if ((strcmp($email, $uemail)) == 0) {
                                 echo '
-                                    <h1 class="mx-3 text-lg font-semibold text-white">Teacher</h1>
+                                    <h1 class="mx-3 text-lg font-semibold text-white">Class Details</h1>
                                 </div>
                             ';
-                            } else {
-                                echo '
-                                    <h1 class="mx-3 text-lg font-semibold text-white">Welcome Student</h1>
-                                </div>
-                            ';
-                            }
                             echo '
                                 <div class="px-6 py-4">
                                     <h2 class="inline-flex items-center justify-center text-2xl px-2 mt-4 font-bold tracking-tight text-green-800 uppercase rounded-lg bg-gray-200 dark:bg-gray-700 shadow-lg">
@@ -182,7 +175,7 @@ session_start();
                             if (isset($_SESSION['signedIn']) && $_SESSION['signedIn'] == true) {
                                 include '../../src/_dbconnect.php';
                                 $cid = $_GET['class'];
-                                $sql = "SELECT assign_name, assign_text FROM `assignment` WHERE `class_id`='$cid';";
+                                $sql = "SELECT assign_name, assign_text, assign_id FROM `assignment` WHERE `class_id`='$cid';";
                                 $res = mysqli_query($con, $sql);
                                 $numRows = mysqli_num_rows($res);
 
@@ -190,6 +183,7 @@ session_start();
                                     while ($row = mysqli_fetch_assoc($res)) {
                                         $aname = $row['assign_name'];
                                         $atext = $row['assign_text'];
+                                        $aid = $row['assign_id'];
                                         echo '
                                                 <div class="flex relative pb-10 sm:items-center md:w-full mx-auto">
                                 <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
@@ -206,6 +200,7 @@ session_start();
                                     <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
                                         <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">'.$aname.'</h2>
                                         <p class="leading-relaxed">'.$atext.'</p>
+                                        <a class="px-4 py-1 text-xs font-bold text-white uppercase transition-colors duration-200 transform bg-green-800 rounded dark:bg-green-700 hover:bg-green-700 dark:hover:bg-green-600 focus:outline-none focus:bg-green-700 dark:focus:bg-green-600" href="submitAssign.php?class='.$aid.'">Open</a>
                                     </div>
                                 </div>
                             </div>';
