@@ -200,7 +200,7 @@ session_start();
                                     <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
                                         <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">'.$aname.'</h2>
                                         <p class="leading-relaxed">'.$atext.'</p>
-                                        <a class="px-4 py-1 text-xs font-bold text-white uppercase transition-colors duration-200 transform bg-green-800 rounded dark:bg-green-700 hover:bg-green-700 dark:hover:bg-green-600 focus:outline-none focus:bg-green-700 dark:focus:bg-green-600" href="submitAssign.php?class='.$aid.'">Open</a>
+                                        <a class="px-4 py-1 text-xs font-bold text-white uppercase transition-colors duration-200 transform bg-green-800 rounded dark:bg-green-700 hover:bg-green-700 dark:hover:bg-green-600 focus:outline-none focus:bg-green-700 dark:focus:bg-green-600" href="submissionPg.php?class='.$aid.'">Open</a>
                                     </div>
                                 </div>
                             </div>';

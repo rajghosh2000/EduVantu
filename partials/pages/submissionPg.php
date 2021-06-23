@@ -44,6 +44,7 @@ session_start();
         if (isset($_SESSION['signedIn']) && $_SESSION['signedIn'] == true) {
             include '../../src/_dbconnect.php';
             $aid = $_GET['class'];
+            $uemail = $_SESSION['usremail'];
             $sql = "SELECT * FROM `assignment` WHERE `assign_id`='$aid';";
             $res = mysqli_query($con, $sql);
             $row = mysqli_fetch_assoc($res);
@@ -122,19 +123,99 @@ session_start();
                                             </div>
                                         </div>
                                     </div>
+                                </div>';
+                                
+                                $s = "SELECT class.u_email, assignment.assign_id FROM `class` JOIN `assignment` ON class.class_id=assignment.class_id WHERE assignment.assign_id='$aid';";
+                                $r = mysqli_query($con,$s);
+                                $rowR = mysqli_fetch_assoc($r);
+                                $u_email = $rowR['u_email'];
+                                if(strcmp($u_email,$uemail)==0){
+                                    echo'
+                                    <div class="flex flex-wrap w-1/3 scroll">
+                                    <div class="lg:w-2/5 md:w-1/2 md:pr-10 md:py-6">
+                                      <div class="flex relative pb-12">
+                                        <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
+                                          <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
+                                        </div>
+                                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500 inline-flex items-center justify-center text-white relative z-10">
+                                          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                          </svg>
+                                        </div>
+                                        <div class="flex-grow pl-4">
+                                          <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">STEP 1</h2>
+                                          <p class="leading-relaxed">VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk bespoke try-hard cliche palo santo offal.</p>
+                                        </div>
+                                      </div>
+                                      <div class="flex relative pb-12">
+                                        <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
+                                          <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
+                                        </div>
+                                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500 inline-flex items-center justify-center text-white relative z-10">
+                                          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                          </svg>
+                                        </div>
+                                        <div class="flex-grow pl-4">
+                                          <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">STEP 2</h2>
+                                          <p class="leading-relaxed">Vice migas literally kitsch +1 pok pok. Truffaut hot chicken slow-carb health goth, vape typewriter.</p>
+                                        </div>
+                                      </div>
+                                      <div class="flex relative pb-12">
+                                        <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
+                                          <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
+                                        </div>
+                                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500 inline-flex items-center justify-center text-white relative z-10">
+                                          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                            <circle cx="12" cy="5" r="3"></circle>
+                                            <path d="M12 22V8M5 12H2a10 10 0 0020 0h-3"></path>
+                                          </svg>
+                                        </div>
+                                        <div class="flex-grow pl-4">
+                                          <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">STEP 3</h2>
+                                          <p class="leading-relaxed">Coloring book nar whal glossier master cleanse umami. Salvia +1 master cleanse blog taiyaki.</p>
+                                        </div>
+                                      </div>
+                                      <div class="flex relative pb-12">
+                                        <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
+                                          <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
+                                        </div>
+                                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500 inline-flex items-center justify-center text-white relative z-10">
+                                          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                                            <circle cx="12" cy="7" r="4"></circle>
+                                          </svg>
+                                        </div>
+                                        <div class="flex-grow pl-4">
+                                          <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">STEP 4</h2>
+                                          <p class="leading-relaxed">VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk bespoke try-hard cliche palo santo offal.</p>
+                                        </div>
+                                      </div>
+                                    ';
+                                }
+                                else{
+                                        echo'
+                                            <div class="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full mb-68 md:py-8 mt-8 md:mt-0">
+                                                <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">Submit Assignment</h2>
+                                                <p class="leading-relaxed mb-5 text-gray-600">Upload your file and Turn in the submission</p>
+                                                <h2 class="inline-flex items-center justify-center text-lg font-bold tracking-tight text-green-800 rounded-lg bg-gray-200 dark:bg-gray-700 shadow-lg px-4 ml-2">
+                                                    Turn In
+                                                </h2>
+                                            <form action="../../src/_submitAssign.php?class=' . $aid . '" method="post">
+                                                <div class="relative mb-4 mt-8">
+                                                    <label for="name" class="leading-7 text-sm text-gray-600">Upload File</label>
+                                                    <input type="file" id="attach" name="attach" class="w-full bg-white bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out shadow-lg" accept=".jpg, .jpeg, .png, .pdf, .docx, .docx" onchange="Filevalidation()" required>
+                                                </div>
+                                                <button class="text-black bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg shadow-xl w-full">Turn In</button>
+                                            </form>
+                                        </div>
+                                    ';
+                                }
+                                echo'
                                 </div>
-                                <div class="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full mb-68 md:py-8 mt-8 md:mt-0">
-                                    <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">Submit Assignment</h2>
-                                    <p class="leading-relaxed mb-5 text-gray-600">Upload your file and Turn in the submission</p>
-                                    <h2 class="text-gray-900 text-sm mb-1 font-medium title-font">Turn In Now</h2>
-                                    <div class="relative mb-4 mt-8">
-                                        <label for="name" class="leading-7 text-sm text-gray-600">Upload File</label>
-                                        <input type="file" id="attach" name="attach" class="w-full bg-white bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out shadow-lg" accept=".jpg, .jpeg, .png, .pdf, .docx, .docx" onchange="Filevalidation()">
-                                    </div>
-                                    <button class="text-black bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg shadow-xl">Turn In</button>
-                                </div>
-                            </div>
-                        </section>';
+                                </section>';
+
+                                
        
         include '_footer.php'; 
         
@@ -186,36 +267,40 @@ session_start();
             var cnt = new Date("'.$duedate.'").getTime();
             var x = setInterval(function() {
                 var now = new Date().getTime();
-                var d = cnt - now;
+                if(cnt > now)
+                {
+                    var d = cnt - now;
     
-                var days = Math.floor(d / (1000 * 60 * 60 * 24));
-                var hours = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                var minutes = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
-                var seconds = Math.floor((d % (1000 * 60)) / 1000);
-    
-                document.getElementById("days").innerHTML = days;
-                document.getElementById("hrs").innerHTML = hours;
-                document.getElementById("mins").innerHTML = minutes;
-                document.getElementById("sec").innerHTML = seconds;
-    
-                if (d <= 0) {
-                    clearInterval(x);
-                }
+                    var days = Math.floor(d / (1000 * 60 * 60 * 24));
+                    var hours = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    var minutes = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((d % (1000 * 60)) / 1000);
+        
+                    document.getElementById("days").innerHTML = days;
+                    document.getElementById("hrs").innerHTML = hours;
+                    document.getElementById("mins").innerHTML = minutes;
+                    document.getElementById("sec").innerHTML = seconds;
+        
+                    if (d <= 0) {
+                        clearInterval(x);
+                    }
+                } 
             }, 1000);
-    
+        </script>';
+        }
+        ?>
+        <script>
             Filevalidation = () => {
-                const fi = document.getElementById('.'attach'.');
-                // Check if any file is selected.
+                const fi = document.getElementById('attach');
                 if (fi.files.length > 0) {
                     for (const i = 0; i <= fi.files.length - 1; i++) {
-    
+
                         const fsize = fi.files.item(i).size;
                         const file = Math.round((fsize / 1024));
-                        // The size of the file.
                         if (file >= 2048) {
                             alert(
                                 "File too Big, please select a file less than 2mb");
-                            document.getElementById('.'attach'.').value = "";
+                            document.getElementById('attach').value = "";
                         }
                     }
                 }
@@ -224,7 +309,4 @@ session_start();
     </body>
     
     </html>
-        ';
-        }
-    ?>
     
