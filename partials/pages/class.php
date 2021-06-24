@@ -10,14 +10,13 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../../img/logo-icon.png">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <title>EduVantu</title>
     <style>
         .container {
-            font-family: 'Patrick Hand', cursive;
+            font-family: 'Kelly Slab', cursive;
         }
-
         .scroll {
             width: max-content;
             height: 550px;

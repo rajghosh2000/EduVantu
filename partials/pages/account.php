@@ -10,9 +10,13 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>EduVantu</title>
             <link rel="icon" href="../../img/logo-icon.png">
+            <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
             <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
             <link rel="stylesheet" type="text/css" href="../css/main.css">
-            <style>            
+            <style>    
+            .container {
+                font-family: '.'Kelly Slab'.', cursive;
+            }        
                 .svg-icon {
                 width: 1.4em;
                 height: 1.4em;
@@ -150,7 +154,7 @@
                             </a>
    
                             
-                            <div class="flex flex-wrap w-36 pt-60 flex-col items-center text-center">
+                            <div class="flex flex-wrap w-36 pt-52 flex-col items-center text-center">
                                 <h1 class="text-md font-medium title-font text-gray-900">CLASSES JOINED</h1>
                             </div>
 

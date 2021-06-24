@@ -130,77 +130,120 @@ session_start();
                                 $rowR = mysqli_fetch_assoc($r);
                                 $u_email = $rowR['u_email'];
                                 if(strcmp($u_email,$uemail)==0){
-                                    echo'
-                                    <div class="flex flex-wrap w-1/3 scroll">
-                                    <div class="lg:w-2/5 md:w-1/2 md:pr-10 md:py-6">
-                                      <div class="flex relative pb-12">
-                                        <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
-                                          <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
-                                        </div>
-                                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500 inline-flex items-center justify-center text-white relative z-10">
-                                          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                          </svg>
-                                        </div>
-                                        <div class="flex-grow pl-4">
-                                          <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">STEP 1</h2>
-                                          <p class="leading-relaxed">VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk bespoke try-hard cliche palo santo offal.</p>
-                                        </div>
-                                      </div>
-                                      <div class="flex relative pb-12">
-                                        <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
-                                          <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
-                                        </div>
-                                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500 inline-flex items-center justify-center text-white relative z-10">
-                                          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                                          </svg>
-                                        </div>
-                                        <div class="flex-grow pl-4">
-                                          <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">STEP 2</h2>
-                                          <p class="leading-relaxed">Vice migas literally kitsch +1 pok pok. Truffaut hot chicken slow-carb health goth, vape typewriter.</p>
-                                        </div>
-                                      </div>
-                                      <div class="flex relative pb-12">
-                                        <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
-                                          <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
-                                        </div>
-                                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500 inline-flex items-center justify-center text-white relative z-10">
-                                          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                                            <circle cx="12" cy="5" r="3"></circle>
-                                            <path d="M12 22V8M5 12H2a10 10 0 0020 0h-3"></path>
-                                          </svg>
-                                        </div>
-                                        <div class="flex-grow pl-4">
-                                          <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">STEP 3</h2>
-                                          <p class="leading-relaxed">Coloring book nar whal glossier master cleanse umami. Salvia +1 master cleanse blog taiyaki.</p>
-                                        </div>
-                                      </div>
-                                      <div class="flex relative pb-12">
-                                        <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
-                                          <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
-                                        </div>
-                                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500 inline-flex items-center justify-center text-white relative z-10">
-                                          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                                            <circle cx="12" cy="7" r="4"></circle>
-                                          </svg>
-                                        </div>
-                                        <div class="flex-grow pl-4">
-                                          <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">STEP 4</h2>
-                                          <p class="leading-relaxed">VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk bespoke try-hard cliche palo santo offal.</p>
-                                        </div>
-                                      </div>
-                                    ';
+                                      $sub = "SELECT submit.*, user.usr_name FROM `submit` JOIN `user` ON submit.u_email=user.usr_email WHERE submit.assign_id='$aid';";
+                                      $resSub = mysqli_query($con,$sub);
+                                      $numSub = mysqli_num_rows($resSub);
+
+                                      echo'<h1 class="text-base font-bold title-font text-gray-900 tracking-widest mr-4">Submissions</h1>
+                                      <div class="flex flex-wrap w-1/2 scroll">
+                                                  <div class="w-88 md:pr-10 md:py-6">';
+
+                                      if ($numSub > 0) {
+                                          while ($rowsSub = mysqli_fetch_assoc($resSub)) {
+                                              $sname = $rowsSub['usr_name'];
+                                              $dos = date('Y-m-d h:i:s', strtotime($rowsSub['submit_stmp']));
+                                              echo'
+                                                      <div class="flex relative pb-12">
+                                                        <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
+                                                          <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
+                                                        </div>
+                                                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500 inline-flex items-center justify-center text-white relative z-10">
+                                                          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                                                            <circle cx="12" cy="7" r="4"></circle>
+                                                          </svg>
+                                                        </div>
+                                                        <div class="flex-grow pl-4">
+                                                          <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">'.$sname.'</h2>
+                                                          <p class="leading-relaxed text-sm">Date of Submission : '.$dos.'</p>
+                                                          <p class="leading-relaxed text-xs">Turned In </p>
+                                                          <a class="px-2 py-1 text-sm font-bold text-black transition-colors duration-200 transform bg-green-400 rounded cursor-pointer hover:bg-green-500">Open Submission</a>
+                                                        </div>
+                                                      </div>
+                                              ';
+                                          }
+                                      }
+                                      else{
+                                              echo'
+                                              <div class="flex relative pb-12">
+                                                <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
+                                                  <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
+                                                </div>
+                                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500 inline-flex items-center justify-center text-white relative z-10">
+                                                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                                  </svg>
+                                                </div>
+                                                <div class="flex-grow pl-4">
+                                                  <h2 class="font-bold title-font text-lg text-gray-900 mb-1 mt-4 tracking-wider">No Submissions Yet</h2>
+                                                </div>
+                                              </div>
+                                          ';
+                                      }
+                                      echo'</div>
+                                          </div>';
                                 }
                                 else{
+                                      $chk = "SELECT submit.*, assignment.* FROM `submit` JOIN `assignment` ON submit.assign_id=assignment.assign_id WHERE submit.u_email='$uemail' AND submit.assign_id='$aid'";
+                                      $resChk = mysqli_query($con,$chk);
+                                      $noR = mysqli_num_rows($resChk);
+                                      
+                                      echo'
+                                        <div class="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full mb-68 md:py-8 mt-8 md:mt-0">
+                                          <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">Submit Assignment</h2>
+                                          <p class="leading-relaxed mb-5 text-gray-600">Upload your file and Turn in the submission</p>
+                                      ';
+
+                                      if($noR>0){
+                                          $rowChk = mysqli_fetch_assoc($resChk);
+                                          $subdate = $rowChk['submit_stmp'];
+                                          $dDate = $rowChk['assign_deadline'];
+                                          $dueTime = new DateTime(date('Y-m-d h:i:s', strtotime($dDate)));
+                                          $sTime = new DateTime(date('Y-m-d h:i:s', strtotime($subdate)));
+
+                                          if($dueTime>=$sTime){
+                                            echo'
+                                              <h2 class="inline-flex items-center justify-center text-lg font-bold tracking-tight text-green-800 rounded-lg bg-gray-200 dark:bg-gray-700 shadow-lg px-4 ml-2">
+                                                Turned In
+                                              </h2>
+                                            ';
+                                          }
+                                          else{
+                                              echo'
+                                              <h2 class="inline-flex items-center justify-center text-lg font-bold tracking-tight text-red-800 rounded-lg bg-gray-200 dark:bg-gray-700 shadow-lg px-4 ml-2">
+                                                Turned In Late
+                                              </h2>
+                                            ';
+                                          }
                                         echo'
-                                            <div class="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full mb-68 md:py-8 mt-8 md:mt-0">
-                                                <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">Submit Assignment</h2>
-                                                <p class="leading-relaxed mb-5 text-gray-600">Upload your file and Turn in the submission</p>
+                                          <div class="relative mb-4 mt-8">
+                                            <label for="name" class="leading-7 text-sm text-gray-600">Upload File</label>
+                                            <input type="file" id="attach" name="attach" class="w-full bg-white bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out shadow-lg" accept=".jpg, .jpeg, .png, .pdf, .docx, .docx" onchange="Filevalidation()" disabled>
+                                          </div>
+                                          <button class="text-black bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg shadow-xl w-full" disabled>Turned In</button>
+                                          </div>
+                                        ';
+                                      }
+                                      else{
+                                        $submissiondate = new DateTime($dueYear.'-'.$dueMonth.'-'.$dueDay.' '.$duetime);
+                                        $now = new DateTime("now");
+                                        if($submissiondate>$now){
+                                              echo'
                                                 <h2 class="inline-flex items-center justify-center text-lg font-bold tracking-tight text-green-800 rounded-lg bg-gray-200 dark:bg-gray-700 shadow-lg px-4 ml-2">
-                                                    Turn In
+                                                  Turn In
                                                 </h2>
+                                              ';
+                                        }
+                                        else{
+                                            echo'
+                                            <h2 class="inline-flex items-center justify-center text-lg font-bold tracking-tight text-red-800 rounded-lg bg-gray-200 dark:bg-gray-700 shadow-lg px-4 ml-2">
+                                              Missing 
+                                            </h2>
+                                          ';
+                                        }
+
+                                        echo'
+                                                
                                             <form action="../../src/_submitAssign.php?class=' . $aid . '" method="post">
                                                 <div class="relative mb-4 mt-8">
                                                     <label for="name" class="leading-7 text-sm text-gray-600">Upload File</label>
@@ -209,7 +252,8 @@ session_start();
                                                 <button class="text-black bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg shadow-xl w-full">Turn In</button>
                                             </form>
                                         </div>
-                                    ';
+                                        ';
+                                      }
                                 }
                                 echo'
                                 </div>
