@@ -141,6 +141,7 @@ session_start();
                                       if ($numSub > 0) {
                                           while ($rowsSub = mysqli_fetch_assoc($resSub)) {
                                               $sname = $rowsSub['usr_name'];
+                                              $semail = $rowsSub['u_email'];
                                               $dos = date('Y-m-d h:i:s', strtotime($rowsSub['submit_stmp']));
                                               echo'
                                                       <div class="flex relative pb-12">
@@ -157,7 +158,7 @@ session_start();
                                                           <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">'.$sname.'</h2>
                                                           <p class="leading-relaxed text-sm">Date of Submission : '.$dos.'</p>
                                                           <p class="leading-relaxed text-xs">Turned In </p>
-                                                          <a class="px-2 py-1 text-sm font-bold text-black transition-colors duration-200 transform bg-green-400 rounded cursor-pointer hover:bg-green-500">Open Submission</a>
+                                                          <a href="marksPg.php?assign='.$aid.'&stdemail='.$semail.'" class="px-2 py-1 text-sm font-bold text-black transition-colors duration-200 transform bg-green-400 rounded cursor-pointer hover:bg-green-500">Open Submission</a>
                                                         </div>
                                                       </div>
                                               ';
