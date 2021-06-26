@@ -14,13 +14,13 @@
         if($res)
         {
             $msg="Marks Assigned";
-            header("Location: /eClass/partials/pages/marksPg.php?class=$aid&msg=$msg");
+            header("Location: /eClass/partials/pages/marksPg.php?assign=$aid&msg=$msg&stdemail=$uemail");
             exit();
         }
         else
         {
             $msg="Server Err";
-            header("Location: /eClass/partials/pages/submissionPg.php?class=$aid&msg=$msg");
+            header("Location: /eClass/partials/pages/submissionPg.php?assign=$aid&msg=$msg&stdemail=$uemail");
             exit();
         }
     }

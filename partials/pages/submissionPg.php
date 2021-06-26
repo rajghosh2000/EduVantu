@@ -201,6 +201,8 @@ session_start();
                                           $dDate = $rowChk['assign_deadline'];
                                           $dueTime = new DateTime(date('Y-m-d h:i:s', strtotime($dDate)));
                                           $sTime = new DateTime(date('Y-m-d h:i:s', strtotime($subdate)));
+                                          $Amarks = $rowChk['assign_marks'];
+                                          $Tmarks = $rowChk['marks'];
 
                                           if($dueTime>=$sTime){
                                             echo'
@@ -218,10 +220,48 @@ session_start();
                                           }
                                         echo'
                                           <div class="relative mb-4 mt-8">
-                                            <label for="name" class="leading-7 text-sm text-gray-600">Upload File</label>
-                                            <input type="file" id="attach" name="attach" class="w-full bg-white bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out shadow-lg" accept=".jpg, .jpeg, .png, .pdf, .docx, .docx" onchange="Filevalidation()" disabled>
+                                              <label for="name" class="leading-7 text-sm text-gray-600">Upload File</label>
+                                              <input type="file" id="attach" name="attach" class="w-full bg-white bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out shadow-lg" accept=".jpg, .jpeg, .png, .pdf, .docx, .docx" onchange="Filevalidation()" disabled>
                                           </div>
-                                          <button class="text-black bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg shadow-xl w-full" disabled>Turned In</button>
+                                          <button class="text-black bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg shadow-xl w-full" disabled>
+                                            Turned In
+                                          </button>';
+
+                                          if(strcmp($Amarks,'')==0){
+                                            echo'
+                                                <div class="bg-white flex py-6 mt-1 mx-6 rounded shadow-lg">
+                                                  <div class="pb-2 w-36 mx-40">
+                                                      <h2 class="title-font font-semibold text-gray-900 tracking-widest text-base mb-2">Marks Obtained</h2>
+                                                      <div class="h-24 w-36 flex items-center border-gray-200 border p-4 rounded-lg">
+                                                          <div class="flex-grow">
+                                                              <div class="text-gray-900 title-font font-bold text-2xl w-32 h-16  pt-2">
+                                                              '.$Amarks.' / '.$Tmarks.'
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                      <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs w-72">**As Soon as Marks are Assigned it will displayed here</h2>
+                                                  </div>
+                                                </div>
+                                            ';
+                                          }
+                                          else{
+                                            echo'
+                                                <div class="bg-white flex py-6 my-2 mx-6 rounded shadow-lg">
+                                                  <div class="pb-2 w-36 mx-40">
+                                                      <h2 class="title-font font-semibold text-gray-900 tracking-widest text-base mb-2">Marks Obtained</h2>
+                                                      <div class="h-24 w-36 flex items-center border-gray-200 border p-4 rounded-lg">
+                                                          <div class="flex-grow">
+                                                              <div class="text-gray-900 title-font font-bold text-2xl w-32 h-16  pt-2">
+                                                                  '.$Amarks.' / '.$Tmarks.'
+                                                              </div>
+                                                          </div>
+                                                      </div>
+
+                                                  </div>
+                                                </div>
+                                            ';
+                                          }
+                                          echo'
                                           </div>
                                         ';
                                       }

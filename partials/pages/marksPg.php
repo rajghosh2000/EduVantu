@@ -54,10 +54,10 @@ session_start();
                             if($res){
                                 $rows = mysqli_fetch_assoc($res);
                                 $name = $rows['usr_name'];
-                                $dateTime = $rows['submit_stmp'];
+                                $dateTime = date('Y-m-d h:i:s', strtotime($rows['submit_stmp']));
                                 $sfile = $rows['submit_file'];
                                 $tmarks = $rows['marks'];
-                                $deadline = $rows['assign_deadline'];
+                                $deadline = date('Y-m-d h:i:s', strtotime($rows['assign_deadline']));
                                 echo'
                                     <div class="px-6">
                                         <h2 class="title-font font-semibold text-gray-900 tracking-widest text-base">'.$name.'</h2>
@@ -66,11 +66,25 @@ session_start();
                                             <div>
                                                 <h2 class="title-font font-semibold text-gray-900 tracking-widest text-sm mt-4">Submission Date</h2>
                                                 <p class="leading-relaxed">'.$dateTime.'</p>
-                                            </div>
-                                            <div class="pl-8">
-                                                <h2 class="title-font font-semibold text-gray-900 tracking-widest text-sm mt-4">Turned In</h2>
-                                                <p class="leading-relaxed">Late/Within Time</p>
-                                            </div>
+                                            </div>';
+
+                                            if($dateTime<=$deadline){
+                                                echo'
+                                                    <div class="pl-8">
+                                                        <h2 class="title-font font-bold text-gray-900 tracking-widest text-sm mt-4">Turned In</h2>
+                                                        <p class="leading-relaxed">Within Time</p>
+                                                    </div>
+                                                ';
+                                            }
+                                            else{
+                                                echo'
+                                                    <div class="pl-8">
+                                                        <h2 class="title-font font-bold text-gray-900 tracking-widest text-sm mt-4">Turned In</h2>
+                                                        <p class="leading-relaxed text-red-600">Late</p>
+                                                    </div>
+                                                ';
+                                            }
+                                        echo'
                                         </div>
                                         <h2 class="title-font font-semibold text-gray-900 tracking-widest text-base mt-2">Attached File</h2>
                                         <button class="flex items-center px-2 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-green-600 rounded-md dark:bg-green-800 hover:bg-green-500 dark:hover:bg-green-700 focus:outline-none focus:bg-green-500 dark:focus:bg-green-700">
@@ -80,42 +94,95 @@ session_start();
                                             <span class="mx-1 text-black">Download</span>
                                         </button>
                                     </div>
-                                </div>
-                                <form class="bg-white flex py-6 rounded shadow-lg mb-3" action="../../src/_setMarks?assign=" method="post">
-                                    <h2 class="title-font font-semibold text-gray-900 tracking-widest text-sm m-4">Set Marks : </h2>
-                                    <div class="p-2 w-36">
-                                        <h2 class="title-font font-semibold text-gray-900 tracking-widest text-base ml-2">Marks</h2>
-                                        <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                                            <div class="flex-grow">
-                                                <input type="text" class="text-gray-900 title-font font-bold text-3xl w-20 h-20 px-2" id="marks" name="marks">
+                                </div>';
+
+                                $sqlMarks = "SELECT assign_marks FROM `submit` WHERE u_email='$semail' AND assign_id='$aid';";
+                                $resMarks = mysqli_query($con,$sqlMarks);
+                                if($resMarks){
+                                    $rowMarks = mysqli_fetch_assoc($resMarks);
+                                    $aMarks = $rowMarks['assign_marks'];
+                                    if(strcmp($aMarks,'')==0){
+                                        echo'
+                                            <form class="bg-white flex py-6 rounded shadow-lg mb-3" action="../../src/_setMarks.php?assign='.$aid.'&stdemail='.$semail.'" method="post">
+                                                <h2 class="title-font font-semibold text-gray-900 tracking-widest text-sm m-4">Set Marks : </h2>
+                                                <div class="p-2 w-36">
+                                                    <h2 class="title-font font-semibold text-gray-900 tracking-widest text-base ml-2">Marks</h2>
+                                                    <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+                                                        <div class="flex-grow">
+                                                            <input type="text" class="text-gray-900 title-font font-bold text-3xl w-20 h-20 px-2" id="marks" name="marks">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="p-2 w-36">
+                                                    <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg mt-5">
+                                                        <div class="flex-grow">
+                                                            <h2 class="text-gray-900 title-font font-bold text-4xl px-8">/</h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="p-2 w-36">
+                                                    <h2 class="title-font font-semibold text-gray-900 tracking-widest text-base ml-2">Total Marks</h2>
+                                                    <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+                                                        <div class="flex-grow">
+                                                            <h2 class="text-gray-900 title-font font-bold text-3xl">'.$tmarks.'</h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="p-2 w-36">
+                                                    <button class="flex items-center px-2 py-2 mt-16 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-green-600 rounded-md dark:bg-green-800 hover:bg-green-500 dark:hover:bg-green-700 focus:outline-none focus:bg-green-500 dark:focus:bg-green-700">
+                                                        <svg class="svg-icon" viewBox="0 0 20 20" style="width:1.5em; height:1.5em;">
+                                                            <path fill="none" d="M16.198,10.896c-0.252,0-0.455,0.203-0.455,0.455v2.396c0,0.626-0.511,1.137-1.138,1.137H5.117c-0.627,0-1.138-0.511-1.138-1.137V7.852c0-0.626,0.511-1.137,1.138-1.137h5.315c0.252,0,0.456-0.203,0.456-0.455c0-0.251-0.204-0.455-0.456-0.455H5.117c-1.129,0-2.049,0.918-2.049,2.047v5.894c0,1.129,0.92,2.048,2.049,2.048h9.488c1.129,0,2.048-0.919,2.048-2.048v-2.396C16.653,11.099,16.45,10.896,16.198,10.896z"></path>
+                                                            <path fill="none" d="M14.053,4.279c-0.207-0.135-0.492-0.079-0.63,0.133c-0.137,0.211-0.077,0.493,0.134,0.63l1.65,1.073c-4.115,0.62-5.705,4.891-5.774,5.082c-0.084,0.236,0.038,0.495,0.274,0.581c0.052,0.019,0.103,0.027,0.154,0.027c0.186,0,0.361-0.115,0.429-0.301c0.014-0.042,1.538-4.023,5.238-4.482l-1.172,1.799c-0.137,0.21-0.077,0.492,0.134,0.629c0.076,0.05,0.163,0.074,0.248,0.074c0.148,0,0.294-0.073,0.382-0.207l1.738-2.671c0.066-0.101,0.09-0.224,0.064-0.343c-0.025-0.118-0.096-0.221-0.197-0.287L14.053,4.279z"></path>
+                                                        </svg>
+                                                        <span class="mx-1 text-black">Save Mark</span>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        ';
+                                    }
+                                    else{
+                                        echo'
+                                            <div class="bg-white flex py-6 rounded shadow-lg mb-3">
+                                                <h2 class="title-font font-semibold text-gray-900 tracking-widest text-sm m-4">Set Marks : </h2>
+                                                <div class="p-2 w-36">
+                                                    <h2 class="title-font font-semibold text-gray-900 tracking-widest text-sm">Marks Obtained</h2>
+                                                    <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+                                                        <div class="flex-grow">
+                                                            <div class="text-gray-900 title-font font-bold text-3xl w-20 h-20 px-2 pt-5">
+                                                                '.$aMarks.'
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="p-2 w-36">
+                                                    <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg mt-5">
+                                                        <div class="flex-grow">
+                                                            <h2 class="text-gray-900 title-font font-bold text-4xl px-8">/</h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="p-2 w-36">
+                                                    <h2 class="title-font font-semibold text-gray-900 tracking-widest text-sm ml-3">Total Marks</h2>
+                                                    <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+                                                        <div class="flex-grow">
+                                                            <h2 class="text-gray-900 title-font font-bold text-3xl">'.$tmarks.'</h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="p-2 w-44">
+                                                    <button class="disabled:opacity-50 flex items-center px-2 py-2 mt-16 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-green-600 rounded-md dark:bg-green-800 hover:bg-green-500 dark:hover:bg-green-700 focus:outline-none focus:bg-green-500 dark:focus:bg-green-700" type="button">
+                                                        <svg class="svg-icon" viewBox="0 0 20 20" style="width:1.5em; height:1.5em;">
+                                                            <path fill="none" d="M16.198,10.896c-0.252,0-0.455,0.203-0.455,0.455v2.396c0,0.626-0.511,1.137-1.138,1.137H5.117c-0.627,0-1.138-0.511-1.138-1.137V7.852c0-0.626,0.511-1.137,1.138-1.137h5.315c0.252,0,0.456-0.203,0.456-0.455c0-0.251-0.204-0.455-0.456-0.455H5.117c-1.129,0-2.049,0.918-2.049,2.047v5.894c0,1.129,0.92,2.048,2.049,2.048h9.488c1.129,0,2.048-0.919,2.048-2.048v-2.396C16.653,11.099,16.45,10.896,16.198,10.896z"></path>
+                                                            <path fill="none" d="M14.053,4.279c-0.207-0.135-0.492-0.079-0.63,0.133c-0.137,0.211-0.077,0.493,0.134,0.63l1.65,1.073c-4.115,0.62-5.705,4.891-5.774,5.082c-0.084,0.236,0.038,0.495,0.274,0.581c0.052,0.019,0.103,0.027,0.154,0.027c0.186,0,0.361-0.115,0.429-0.301c0.014-0.042,1.538-4.023,5.238-4.482l-1.172,1.799c-0.137,0.21-0.077,0.492,0.134,0.629c0.076,0.05,0.163,0.074,0.248,0.074c0.148,0,0.294-0.073,0.382-0.207l1.738-2.671c0.066-0.101,0.09-0.224,0.064-0.343c-0.025-0.118-0.096-0.221-0.197-0.287L14.053,4.279z"></path>
+                                                        </svg>
+                                                        <span class="mx-1 text-black text-sm">Marks Saved</span>
+                                                    </button>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="p-2 w-36">
-                                        <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg mt-5">
-                                            <div class="flex-grow">
-                                                <h2 class="text-gray-900 title-font font-bold text-4xl px-8">/</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="p-2 w-36">
-                                        <h2 class="title-font font-semibold text-gray-900 tracking-widest text-base ml-2">Total Marks</h2>
-                                        <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                                            <div class="flex-grow">
-                                                <h2 class="text-gray-900 title-font font-bold text-3xl">'.$tmarks.'</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="p-2 w-36">
-                                        <button class="flex items-center px-2 py-2 mt-16 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-green-600 rounded-md dark:bg-green-800 hover:bg-green-500 dark:hover:bg-green-700 focus:outline-none focus:bg-green-500 dark:focus:bg-green-700">
-                                            <svg class="svg-icon" viewBox="0 0 20 20" style="width:1.5em; height:1.5em;">
-                                                <path fill="none" d="M16.198,10.896c-0.252,0-0.455,0.203-0.455,0.455v2.396c0,0.626-0.511,1.137-1.138,1.137H5.117c-0.627,0-1.138-0.511-1.138-1.137V7.852c0-0.626,0.511-1.137,1.138-1.137h5.315c0.252,0,0.456-0.203,0.456-0.455c0-0.251-0.204-0.455-0.456-0.455H5.117c-1.129,0-2.049,0.918-2.049,2.047v5.894c0,1.129,0.92,2.048,2.049,2.048h9.488c1.129,0,2.048-0.919,2.048-2.048v-2.396C16.653,11.099,16.45,10.896,16.198,10.896z"></path>
-                                                <path fill="none" d="M14.053,4.279c-0.207-0.135-0.492-0.079-0.63,0.133c-0.137,0.211-0.077,0.493,0.134,0.63l1.65,1.073c-4.115,0.62-5.705,4.891-5.774,5.082c-0.084,0.236,0.038,0.495,0.274,0.581c0.052,0.019,0.103,0.027,0.154,0.027c0.186,0,0.361-0.115,0.429-0.301c0.014-0.042,1.538-4.023,5.238-4.482l-1.172,1.799c-0.137,0.21-0.077,0.492,0.134,0.629c0.076,0.05,0.163,0.074,0.248,0.074c0.148,0,0.294-0.073,0.382-0.207l1.738-2.671c0.066-0.101,0.09-0.224,0.064-0.343c-0.025-0.118-0.096-0.221-0.197-0.287L14.053,4.279z"></path>
-                                            </svg>
-                                            <span class="mx-1 text-black">Save Mark</span>
-                                        </button>
-                                    </div>
-                                </form>
+                                        ';
+                                    }
+                                }
+                            echo'   
                             </div>
                         </div>
                     </section>

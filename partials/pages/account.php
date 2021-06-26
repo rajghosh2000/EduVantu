@@ -53,9 +53,8 @@
                 }
             </style>
         </head>
-
-        <body>
         
+        <body>
             <div id="myModal" class="modal">
                 <div class="modal-content">
                     <div class="modal-header">
