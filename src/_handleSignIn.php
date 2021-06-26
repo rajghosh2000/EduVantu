@@ -18,7 +18,7 @@
                         session_start();
                         $_SESSION['signedIn'] = true;
                         $_SESSION['usremail'] = $uemail; 
-                        header("Location: /eClass/partials/pages/account.php");
+                        header("Location: /partials/pages/account.php");
                         exit(); 
                 }
             else{
@@ -29,6 +29,6 @@
         else{
             $showErr="No field found";
         }
-        header("Location: /eclass?err=$showErr");
+        header("Location: /?err=$showErr");
     }
 ?>
