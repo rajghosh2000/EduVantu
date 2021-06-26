@@ -8,8 +8,7 @@
     <link rel="icon" href="img/logo-icon.png">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/index.css">
     <title>EduVantu</title>
 </head>
@@ -17,8 +16,7 @@
 <body>
 
     <!-- MODAL HERE -->
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <style>
             .container {
                 font-family: 'Krona One', sans-serif;
@@ -29,20 +27,19 @@
                 border-color: aliceblue;
             }
         </style>
-         <script>
+        <script>
             var address = window.location.href; //Gets the content of address bar
 
             //Checks OTP was succesful
-            var findUser = address.search("userId=true"); 
-            if (findUser >= 0) { 
+            var findUser = address.search("userId=true");
+            if (findUser >= 0) {
                 alert("Account Created!!!Kindly Login now with the credentials.");
             }
 
             var findErr = address.search("userId=false");
-            if(findErr >=0){
+            if (findErr >= 0) {
                 alert("OTP Error!!! Please Register Again and Provide with correct OTP");
             }
-
         </script>
         <div class="modal-dialog container" role="document">
             <div class="modal-content bg-transparent bdy">
@@ -56,13 +53,11 @@
                     <form action="././src/_handleSignIn.php" method="post">
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="text-success"><b>Email address</b></label>
-                            <input type="email" class="form-control bg-transparent text-white" id="u_email" name="u_email"
-                                aria-describedby="emailHelp" placeholder="Enter email">
+                            <input type="email" class="form-control bg-transparent text-white" id="u_email" name="u_email" aria-describedby="emailHelp" placeholder="Enter email">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1" class="text-success"><b>Password</b></label>
-                            <input type="password" class="form-control bg-transparent text-white"
-                                id="u_pwd" name="u_pwd" placeholder="Password">
+                            <input type="password" class="form-control bg-transparent text-white" id="u_pwd" name="u_pwd" placeholder="Password">
                         </div>
                         <button type="submit" class="btn btn-success"><b>Submit</b></button>
                     </form>
@@ -72,12 +67,10 @@
                         <div class="col-lg-12">
                             <div class="row">
                                 <div class="col-lg-4">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-dismiss="modal"><b>Close</b></button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><b>Close</b></button>
                                 </div>
                                 <div class="col-lg-8">
-                                    <a href="partials/pages/_signUp.html"><button type="button"
-                                            class="btn btn-success w-64 ">
+                                    <a href="partials/pages/_signUp.html"><button type="button" class="btn btn-success w-64 ">
                                             <b>REGISTER NOW</b>
                                         </button></a>
                                 </div>
@@ -136,14 +129,11 @@
         //fill div with clone of real header
         $("h2.glitched").clone().appendTo(".glitch-window");
     </script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
 </body>
 
