@@ -14,13 +14,13 @@
         if($res)
         {
             $msg="Assignment Submitted";
-            header("Location: /eClass/partials/pages/submissionPg.php?class=$aid&msg=$msg");
+            header("Location: /partials/pages/submissionPg.php?class=$aid&msg=$msg");
             exit();
         }
         else
         {
             $msg="Server Err";
-            header("Location: /eClass/partials/pages/submissionPg.php?class=$aid&msg=$msg");
+            header("Location: /partials/pages/submissionPg.php?class=$aid&msg=$msg");
             exit();
         }
     }

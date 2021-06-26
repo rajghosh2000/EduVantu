@@ -93,7 +93,7 @@
                                 } else { 
                                     echo 'Message has been sent.';
                                     echo 'Mail Sent';
-                                    header("Location: /eClass/partials/pages/_signUp.html?userId=true?$usrEmail+$dob");
+                                    header("Location: /partials/pages/_signUp.html?userId=true?$usrEmail+$dob");
                                     exit(); 
                                 }                                 
                             }
@@ -112,5 +112,5 @@
                     $err="Details not added!!";
                 }
         }
-        header("Location: /eClass/partials/pages/_signUp.html?errCL=$err"); 
+        header("Location: /partials/pages/_signUp.html?errCL=$err"); 
     }

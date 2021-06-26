@@ -15,7 +15,7 @@
 
             if($numRows==1)
             {
-                header("Location: /eClass?userId=true");
+                header("Location: /?userId=true");
                 exit();
             }
             else
@@ -24,13 +24,13 @@
                 $resDel = mysqli_query($con,$sqlDel);
                 if($resDel)
                 {
-                    header("Location: /eClass?userId=false");
+                    header("Location: /?userId=false");
                     exit();   
                 }
                 else
                 {
                     echo "SQL ERR";
-                    header("Location: /eClass/partials/pages/_signUp.html?userId=SQLErr");
+                    header("Location: /partials/pages/_signUp.html?userId=SQLErr");
                     exit();
                 }
             }
@@ -38,7 +38,7 @@
         else
         {
             $err="OTP fetch Error";
-            header("Location: /eClass/partials/pages/_signUp.html?userId=OTPErr");
+            header("Location: /partials/pages/_signUp.html?userId=OTPErr");
             exit();
         }
     }

@@ -31,18 +31,18 @@
             if($sqlRes)
             {
                 $msg="Assignment Added";
-                header("Location: /eClass/partials/pages/class.php?class=$cid&msg=$msg");
+                header("Location: /partials/pages/class.php?class=$cid&msg=$msg");
                 exit();
             }
             else{
                 $msg="Server Err";
-                header("Location: /eClass/partials/pages/class.php?=$msg?class=$cid");
+                header("Location: /partials/pages/class.php?=$msg?class=$cid");
                 exit();
             }
         }
         else{
             $msg="Network Err";
-            header("Location: /eClass/partials/pages/class.php?=$msg?class=$cid");
+            header("Location: /partials/pages/class.php?=$msg?class=$cid");
             exit();
         }
     }
