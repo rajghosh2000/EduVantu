@@ -185,25 +185,50 @@ session_start();
                                         $aid = $row['assign_id'];
                                         echo '
                                                 <div class="flex relative pb-10 sm:items-center md:w-full mx-auto">
-                                <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
-                                    <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
-                                </div>
-                                <div class="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-green-500 text-white relative z-10 title-font font-medium text-sm">1</div>
-                                <div class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
-                                    <div class="flex-shrink-0 w-24 h-24 bg-green-100 text-green-500 rounded-full inline-flex items-center justify-center">
-                                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-12 h-12" viewBox="0 0 24 24">
-                                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                                            <circle cx="12" cy="7" r="4"></circle>
-                                        </svg>
-                                    </div>
-                                    <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
-                                        <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">'.$aname.'</h2>
-                                        <p class="leading-relaxed">'.$atext.'</p>
-                                        <a class="px-4 py-1 text-xs font-bold text-white uppercase transition-colors duration-200 transform bg-green-800 rounded dark:bg-green-700 hover:bg-green-700 dark:hover:bg-green-600 focus:outline-none focus:bg-green-700 dark:focus:bg-green-600" href="submissionPg.php?class='.$aid.'">Open</a>
-                                    </div>
-                                </div>
-                            </div>';
+                                                    <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
+                                                        <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
+                                                    </div>
+                                                <div class="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-green-500 text-white relative z-10 title-font font-medium text-sm">1</div>
+                                                <div class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
+                                                    <div class="flex-shrink-0 w-24 h-24 bg-green-100 text-green-500 rounded-full inline-flex items-center justify-center">
+                                                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-12 h-12" viewBox="0 0 24 24">
+                                                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                                                            <circle cx="12" cy="7" r="4"></circle>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
+                                                        <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">'.$aname.'</h2>
+                                                        <p class="leading-relaxed">'.$atext.'</p>
+                                                        <a class="px-4 py-1 text-xs font-bold text-white uppercase transition-colors duration-200 transform bg-green-800 rounded dark:bg-green-700 hover:bg-green-700 dark:hover:bg-green-600 focus:outline-none focus:bg-green-700 dark:focus:bg-green-600" href="submissionPg.php?class='.$aid.'">Open</a>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            ';
                                     }
+                                }
+                                else{
+                                    echo'
+                                        <div class="flex relative sm:items-center w-full">
+                                            <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
+                                                <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
+                                            </div>
+                                            <div class="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-yellow-500 text-white relative z-10 title-font font-medium text-sm">
+                                                0
+                                            </div>
+                                            <div class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
+                                                <div class="flex-shrink-0 w-24 h-24 bg-green-100 text-yellow-500 rounded-full inline-flex items-center justify-center">
+                                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-12 h-12" viewBox="0 0 24 24">
+                                                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                                                        <circle cx="12" cy="7" r="4"></circle>
+                                                    </svg>
+                                                </div>
+                                                <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
+                                                    <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">No Assignments Yet</h2>
+                                                    <p class="leading-relaxed"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        ';
                                 }
                             }
                             ?>

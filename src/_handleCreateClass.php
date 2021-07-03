@@ -45,40 +45,40 @@
                                                 if($result)
                                                 {
                                                     $msg = "Classcreated";
-                                                    header("Location: /partials/pages/account.php?=$msg");
+                                                    header("Location: /eclass/partials/pages/account.php?=$msg");
                                                     exit();
                                                 }
                                                 else{
                                                     $msg="Server Err 1";
-                                                    header("Location: /partials/pages/account.php?=$msg");
+                                                    header("Location: /eclass/partials/pages/account.php?=$msg");
                                                     exit(); 
                                                 }
                                             }
                                         else
                                             {
                                                 $msg="Server Err 2";
-                                                header("Location: /partials/pages/account.php?=$msg");
+                                                header("Location: /eclass/partials/pages/account.php?=$msg");
                                                 exit(); 
                                             } 
                                     }
                                 else
                                     {
                                         $msg="Server Err 3";
-                                        header("Location: /partials/pages/account.php?=$msg");
+                                        header("Location: /eclass/partials/pages/account.php?=$msg");
                                         exit(); 
                                     }
                             }
                         else
                             {
                                 $msg="Class Code Exits";
-                                header("Location: /partials/pages/account.php?=$msg");
+                                header("Location: /eclass/partials/pages/account.php?=$msg");
                                 exit();   
                             } 
                     }  
                 else
                     {
                         $msg="Class Err";
-                        header("Location: /partials/pages/account.php?=$msg");
+                        header("Location: /eclass/partials/pages/account.php?=$msg");
                         exit();  
                     }             
             }

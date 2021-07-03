@@ -14,7 +14,7 @@
         if($numRows==1)
             {
                 $msg="Already Joined To Class";
-                header("Location: /partials/pages/account.php?=$msg");
+                header("Location: /eclass/partials/pages/account.php?=$msg");
                 exit();
             }
         else{
@@ -29,7 +29,7 @@
                     if((strcmp($email,$uemail)) == 0)
                     {
                         $msg="Owner Cannot Join The Class";
-                        header("Location: /partials/pages/account.php?=$msg");
+                        header("Location: /eclass/partials/pages/account.php?=$msg");
                         exit();
                     }
                     else
@@ -56,19 +56,19 @@
                             if($resUpd)
                             {
                                 $msg="Joined Class";
-                                header("Location: /partials/pages/account.php?=$msg");
+                                header("Location: /eclass/partials/pages/account.php?=$msg");
                                 exit();
                             }
                             else{
                                 $msg="Server Err";
-                                header("Location: /partials/pages/account.php?=$msg");
+                                header("Location: /eclass/partials/pages/account.php?=$msg");
                                 exit();
                             }
                         }
                         else
                         {
                             $msg="Could Not Join Class Server Err";
-                            header("Location: /partials/pages/account.php?=$msg");
+                            header("Location: /eclass/partials/pages/account.php?=$msg");
                             exit();
                         }
                     }   
@@ -76,7 +76,7 @@
             else
             {
                 $msg="Code Doesnot Exist";
-                header("Location: /partials/pages/account.php?=$msg");
+                header("Location: /eclass/partials/pages/account.php?=$msg");
                 exit();
             }
         }

@@ -108,9 +108,7 @@ session_start();
                                     </div>
                                     <div class="p-4 w-full ml-96">
                                         <div class="relative">
-                                            <button class="flex items-center px-5 py-2 text-sm font-medium tracking-wide text-center text-black capitalize transition-colors duration-200 transform bg-green-700 rounded-lg hover:bg-green-600 focus:outline-none focus:bg-green-600">
-                                                Share Assignment
-                                            </button>
+                                            <input type="submit" class="flex items-center px-5 py-2 text-sm font-medium tracking-wide text-center text-black capitalize transition-colors duration-200 transform bg-green-700 rounded-lg hover:bg-green-600 focus:outline-none focus:bg-green-600" name="submit" id="submit" value="Share Assignment">
                                         </div>
                                     </div>
                                 </div>
