@@ -20,7 +20,9 @@
 <br>
 
 ### Pages
-<img src="https://imgur.com/a/bj9bhN9" width="80" height="80" />
+![Registration](https://imgur.com/a/bj9bhN9)
+                                                             
+                                                             
 ### Author
 
 
