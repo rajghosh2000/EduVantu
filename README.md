@@ -21,7 +21,7 @@
 
 ### Pages
 
-<img src="https://user-images.githubusercontent.com/45513473/124506553-81d0df00-dde9-11eb-98d9-9d13f4c7df23.gif" width="1000" height="500"/>
+<img src="https://user-images.githubusercontent.com/45513473/124506553-81d0df00-dde9-11eb-98d9-9d13f4c7df23.gif" width="700" height="350"/>
                                                              
 ### Author
 
