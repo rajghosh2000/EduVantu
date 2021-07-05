@@ -28,7 +28,7 @@
 <!DOCTYPE html>
   <html>
     <body>
-      <iframe src="https://drive.google.com/file/d/1U16qK02LvIxTagV5zJzg9WXx7cXKeONY/preview" width="700" height="350" allow="autoplay"></iframe>
+      <iframe src="https://drive.google.com/file/d/1U16qK02LvIxTagV5zJzg9WXx7cXKeONY/preview"></iframe>
     </body>
 </html>
 
