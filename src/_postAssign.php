@@ -12,8 +12,6 @@
         $due =  $_POST['deadline'];
         $afile =  $_POST['attach'];
         $marks =  $_POST['points'];
-        $filename = $_FILES["attach"]["name"];
-        echo $filename;
 
         // if(strcmp($afile,'')!=0)
         // {
@@ -30,37 +28,37 @@
         //     }
         // }
 
-        // $sql = "INSERT INTO `assignment` (`sno`, `assign_id`, `assign_name`, `class_id`, `assign_text`, `assign_deadline`, `assign_file`, `marks`, `assign_stmp`) VALUES (NULL, '', '$aname', '$cid', '$adesc', '$due', '$afile', '$marks', current_timestamp());";
-        // $res = mysqli_query($con,$sql);
+        $sql = "INSERT INTO `assignment` (`sno`, `assign_id`, `assign_name`, `class_id`, `assign_text`, `assign_deadline`, `assign_file`, `marks`, `assign_stmp`) VALUES (NULL, '', '$aname', '$cid', '$adesc', '$due', '$afile', '$marks', current_timestamp());";
+        $res = mysqli_query($con,$sql);
 
-        // if($res)
-        // {
-        //     $upd = "SELECT sno FROM `assignment` WHERE `assign_name`='$aname'";
-        //     $resUpd = mysqli_query($con,$upd);
-        //     $rowId = mysqli_fetch_assoc($resUpd);
-        //     $aid = $rowId['sno'];
+        if($res)
+        {
+            $upd = "SELECT sno FROM `assignment` WHERE `assign_name`='$aname'";
+            $resUpd = mysqli_query($con,$upd);
+            $rowId = mysqli_fetch_assoc($resUpd);
+            $aid = $rowId['sno'];
 
-        //     $id = (string) $aid;
-        //     $newId = ($cid.$id);
+            $id = (string) $aid;
+            $newId = ($cid.$id);
 
-        //     $sqlUpd = "UPDATE `assignment` SET `assign_id`='$newId' WHERE `assign_name`='$aname';";
-        //     $sqlRes = mysqli_query($con,$sqlUpd);
-        //     if($sqlRes)
-        //     {
-        //         $msg="Assignment Added";
-        //         header("Location: /eclass/partials/pages/class.php?class=$cid&msg=$msg");
-        //         exit();
-        //     }
-        //     else{
-        //         $msg="Server Err";
-        //         header("Location: /eclass/partials/pages/class.php?=$msg?class=$cid");
-        //         exit();
-        //     }
-        // }
-        // else{
-        //     $msg="Network Err";
-        //     header("Location: /eclass/partials/pages/class.php?=$msg?class=$cid");
-        //     exit();
-        // }
+            $sqlUpd = "UPDATE `assignment` SET `assign_id`='$newId' WHERE `assign_name`='$aname';";
+            $sqlRes = mysqli_query($con,$sqlUpd);
+            if($sqlRes)
+            {
+                $msg="Assignment Added";
+                header("Location: /eclass/partials/pages/class.php?class=$cid&msg=$msg");
+                exit();
+            }
+            else{
+                $msg="Server Err";
+                header("Location: /eclass/partials/pages/class.php?=$msg?class=$cid");
+                exit();
+            }
+        }
+        else{
+            $msg="Network Err";
+            header("Location: /eclass/partials/pages/class.php?=$msg?class=$cid");
+            exit();
+        }
     }
 ?>
