@@ -21,7 +21,27 @@
 
 ### Pages
 
-<img src="https://user-images.githubusercontent.com/45513473/124506553-81d0df00-dde9-11eb-98d9-9d13f4c7df23.gif" width="700" height="350"/>
+<h3>Registration Page</h3><br>
+<img src="https://user-images.githubusercontent.com/45513473/124506553-81d0df00-dde9-11eb-98d9-9d13f4c7df23.gif" width="700" height="350"/><br>
+
+<h3>Create Class Page</h3><br>
+<img src="https://user-images.githubusercontent.com/45513473/124506553-81d0df00-dde9-11eb-98d9-9d13f4c7df23.gif" width="700" height="350"/><br>
+
+<h3>Join Class Page</h3><br>
+<img src="https://user-images.githubusercontent.com/45513473/124507422-69fa5a80-ddeb-11eb-9d46-36e72b0b3d51.gif" width="700" height="350"/><br>
+
+<h3>Create Assignment Page</h3><br>
+<img src="https://user-images.githubusercontent.com/45513473/124507251-0c660e00-ddeb-11eb-99f4-7fa669c7de36.gif" width="700" height="350"/><br>
+
+<h3>Assignment Submission Page</h3><br>
+<img src="https://user-images.githubusercontent.com/45513473/124507162-d9bc1580-ddea-11eb-8040-5a6e72a3aae1.gif" width="700" height="350"/><br>
+
+<h3>Set Marks Page</h3><br>
+<img src="https://user-images.githubusercontent.com/45513473/124507054-9b265b00-ddea-11eb-96f5-7eeffe76052f.gif" width="700" height="350"/><br>
+
+<h3>Check Marks Page</h3><br>
+<img src="https://user-images.githubusercontent.com/45513473/124507015-82b64080-ddea-11eb-97e6-975e5877ba71.gif" width="700" height="350"/><br>
+
                                                              
 ### Author
 
