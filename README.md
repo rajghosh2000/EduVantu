@@ -25,7 +25,7 @@
 <img src="https://user-images.githubusercontent.com/45513473/124506553-81d0df00-dde9-11eb-98d9-9d13f4c7df23.gif" width="700" height="350"/><br>
 
 <h3>Create Class Page</h3><br>
-<img src="https://drive.google.com/file/d/1U16qK02LvIxTagV5zJzg9WXx7cXKeONY/view?usp=sharing" width="700" height="350"/><br>
+<iframe src="https://drive.google.com/file/d/1U16qK02LvIxTagV5zJzg9WXx7cXKeONY/preview" width="700" height="350" allow="autoplay"></iframe>
 
 <h3>Join Class Page</h3><br>
 <img src="https://user-images.githubusercontent.com/45513473/124507422-69fa5a80-ddeb-11eb-9d46-36e72b0b3d51.gif" width="700" height="350"/><br>
