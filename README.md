@@ -20,8 +20,8 @@
 <br>
 
 ### Pages
-![Registration](https://imgur.com/a/bj9bhN9)
-                                                             
+![Registration]()
+[<img src="https://imgur.com/a/bj9bhN9" width="35" padding="10">](https://www.linkedin.com/in/rajdeep-ghosh-301082175/)                                                             
                                                              
 ### Author
 
