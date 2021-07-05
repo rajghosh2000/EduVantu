@@ -20,7 +20,8 @@
 <br>
 
 ### Pages
-                                                     
+
+![reg](https://user-images.githubusercontent.com/45513473/124506553-81d0df00-dde9-11eb-98d9-9d13f4c7df23.gif)
                                                              
 ### Author
 
