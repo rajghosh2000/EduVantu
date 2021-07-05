@@ -19,7 +19,6 @@
 
 <br>
 
-![Create Class](https://imgur.com/rikaZ6J)
 
 ### Pages
 
