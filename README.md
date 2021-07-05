@@ -20,7 +20,7 @@
 <br>
 
 ### Pages
-![Alt Text](https://drive.google.com/file/d/1w4isKWNJNMaGRBl22n77EM_DDvKkqkaK)
+![Alt Text](https://imgur.com/a/bj9bhN9)
 
 ### Author
 
