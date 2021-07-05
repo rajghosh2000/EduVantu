@@ -20,8 +20,7 @@
 <br>
 
 ### Pages
-![Alt Text](https://imgur.com/a/bj9bhN9)
-
+<img src="https://imgur.com/a/bj9bhN9" width="80" height="80" />
 ### Author
 
 
