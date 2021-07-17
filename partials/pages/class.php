@@ -17,6 +17,7 @@ session_start();
         .container {
             font-family: 'Kelly Slab', cursive;
         }
+
         .scroll {
             width: max-content;
             height: 550px;
@@ -69,6 +70,7 @@ session_start();
             <div class="max-w-sm mx-auto lg:mx-4 overflow-hidden bg-green-50 rounded-lg shadow-xl dark:bg-gray-800 lg:w-1/2">
                 <div class="h-48 overflow-hidden">
                     <video src="../../img/class.mp4" width="1000" height="400" preload muted loop autoplay playsinline class="rounded-lg"></video>
+                   
                 </div>
 
                 <div class="flex items-center px-6 py-3 bg-gray-900">
@@ -93,7 +95,7 @@ session_start();
                             $code = $row['class_join_code'];
                             $uemail = $row['u_email'];
 
-                                echo '
+                            echo '
                                     <h1 class="mx-3 text-lg font-semibold text-white">Class Details</h1>
                                 </div>
                             ';
@@ -197,17 +199,16 @@ session_start();
                                                         </svg>
                                                     </div>
                                                     <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
-                                                        <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">'.$aname.'</h2>
-                                                        <p class="leading-relaxed">'.$atext.'</p>
-                                                        <a class="px-4 py-1 text-xs font-bold text-white uppercase transition-colors duration-200 transform bg-green-800 rounded dark:bg-green-700 hover:bg-green-700 dark:hover:bg-green-600 focus:outline-none focus:bg-green-700 dark:focus:bg-green-600" href="submissionPg.php?class='.$aid.'">Open</a>
+                                                        <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">' . $aname . '</h2>
+                                                        <p class="leading-relaxed">' . $atext . '</p>
+                                                        <a class="px-4 py-1 text-xs font-bold text-white uppercase transition-colors duration-200 transform bg-green-800 rounded dark:bg-green-700 hover:bg-green-700 dark:hover:bg-green-600 focus:outline-none focus:bg-green-700 dark:focus:bg-green-600" href="submissionPg.php?class=' . $aid . '">Open</a>
                                                     </div>
                                                 </div>
                                                 </div>
                                             ';
                                     }
-                                }
-                                else{
-                                    echo'
+                                } else {
+                                    echo '
                                         <div class="flex relative sm:items-center w-full">
                                             <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
                                                 <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
