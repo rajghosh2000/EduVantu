@@ -54,16 +54,17 @@
 
                                 $mail = new PHPMailer();
                                 
+                                $mail->SMTPDebug = 1;
                                 $mail->isSMTP();                      // Set mailer to use SMTP 
                                 $mail->Host = 'smtp.gmail.com';       // Specify main and backup SMTP servers 
                                 $mail->SMTPAuth = true;               // Enable SMTP authentication 
-                                $mail->Username = 'UserEmail';   // Give your Email Id Here
-                                $mail->Password = 'UserPwd';   // Give you Email Pwd here
+                                $mail->Username = 'eduvantultd@gmail.com';   // Give your Email Id Here
+                                $mail->Password = 'eduVantu25@07Ltd';   // Give you Email Pwd here
                                 $mail->SMTPSecure = 'tls';            // Enable TLS encryption, `ssl` also accepted 
                                 $mail->Port = 587;                    // TCP port to connect to 
 
                                 // Sender info 
-                                $mail->setFrom('Sender Email Here', 'Eduvantu Limited'); 
+                                $mail->setFrom('eduvantultd@gmail.com', 'Eduvantu Limited'); 
 
                                 // Add a recipient 
                                 $mail->addAddress($usrEmail);
