@@ -59,7 +59,7 @@
                                 $mail->Host = 'smtp.gmail.com';       // Specify main and backup SMTP servers 
                                 $mail->SMTPAuth = true;               // Enable SMTP authentication 
                                 $mail->Username = 'eduvantultd@gmail.com';   // Give your Email Id Here
-                                $mail->Password = 'eduVantu25@07Ltd';   // Give you Email Pwd here
+                                $mail->Password = '<Password Here>';   // Give you Email Pwd here
                                 $mail->SMTPSecure = 'tls';            // Enable TLS encryption, `ssl` also accepted 
                                 $mail->Port = 587;                    // TCP port to connect to 
 
